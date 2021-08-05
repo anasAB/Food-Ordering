@@ -1,6 +1,8 @@
 import Card from '../UI/Card';
 import './AvailableMeals.css'
-import React , {Fragment} from 'react'
+import React, { Fragment } from 'react'
+import MealItem from './MealItem';
+import MealItemForm from './MealItemForm';
 
 const DUMMY_MEALS = [
     {
@@ -32,26 +34,20 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
 
     return (
+
         <Fragment>
-            {DUMMY_MEALS.map(expense => (
+            {DUMMY_MEALS.map(meal => (
                 <section key={Math.random()} className='meals'>
                     <Card>
-                        <div className="AvailableMeals-container">
-                            <div className="row">
-                                <div className="col-6 col-md-4 ">
-                                    {expense.name}
-                                </div>
-                                <div className="col-6 col-md-4">
-                                    {expense.description}
-                                </div>
-                                <div className="col-6 col-md-4">
-                                    {expense.price}
-                                </div>
-                            </div>
-                        </div>
-
+                        <MealItem
+                            key={Math.random()}
+                            meal={meal}
+                        />
+                        <MealItemForm/>
                     </Card>
+
                 </section>
+
             ))
             }
         </Fragment>
