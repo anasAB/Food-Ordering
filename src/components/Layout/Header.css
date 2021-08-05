@@ -19,6 +19,8 @@
     height: 25rem;
     z-index: 1;
     overflow: hidden;
+    animation: img-appear 1s ease-out forwards;
+
   }
   
   .main-image img {
@@ -27,5 +29,18 @@
     object-fit: cover;
     opacity: 0.7;
     transform: rotateZ(-4deg) translateY(-4rem) translateX(-1rem);
+  }
+
+
+  @keyframes img-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
   
+    to {
+      opacity: 0.9;
+
+      transform: translateY(0);
+    }
   }

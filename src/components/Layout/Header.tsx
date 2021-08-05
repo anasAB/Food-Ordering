@@ -8,12 +8,13 @@ const Header = () => {
         <Fragment>
             <header className='header'>
                 <h1>Meals</h1>
-                <HeaderCartButton/>
+                <HeaderCartButton />
             </header>
 
             <div className='main-image'>
-                <img className='main-image img ' src='https://wallup.net/wp-content/uploads/2017/11/17/286693-food-lunch-drink-hot_drink.jpg' alt='Food'/>
+                <img className='main-image img ' src='https://wallup.net/wp-content/uploads/2017/11/17/286693-food-lunch-drink-hot_drink.jpg' alt='Food' />
             </div>
+
         </Fragment>
     )
 }

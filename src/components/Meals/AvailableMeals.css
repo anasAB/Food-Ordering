@@ -1,0 +1,31 @@
+.meals {
+    max-width: 88rem;
+    width: 90%;
+    margin: 2rem auto;
+    animation: meals-appear 1s ease-out forwards;
+    }
+
+    .AvailableMeals-container {
+      transform: scale(0.9, 1.5);
+      transition: transform 0.2s ease-in;
+      color: rgb(190, 134, 30);
+    }
+    
+ 
+    .AvailableMeals-container:hover {
+      transform: scale(1, 1);
+    }
+    
+
+  @keyframes meals-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 0.9;
+
+      transform: translateY(0);
+    }
+  }
