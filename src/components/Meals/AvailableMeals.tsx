@@ -10,12 +10,22 @@ const DUMMY_MEALS = [
         name: 'Sushi',
         description: 'Finest fish and veggies',
         price: 22.99,
+        ingredients:{
+            'Sushi Rice' :'Sushi-Meshi',
+            'Japanese rice vinegar':'Komezu',
+            'flavoring':'Kombu',
+        }
     },
     {
         id: 'm2',
         name: 'Schnitzel',
         description: 'A german specialty!',
         price: 16.5,
+        ingredients:{
+            'Schnitzel' :'AAA',
+            'B':'b',
+            'C':'c',
+        }
     },
     {
         id: 'm3',

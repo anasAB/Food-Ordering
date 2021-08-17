@@ -1,0 +1,10 @@
+
+  .info{
+    width: 6%;
+    opacity: 0.5;
+  }
+
+  .info:hover{
+    color:red;
+    opacity: 1;
+  }
