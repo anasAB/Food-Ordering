@@ -31,6 +31,8 @@ const DUMMY_MEALS = [
     },
 ];
 
+
+
 const AvailableMeals = () => {
 
     return (
@@ -43,7 +45,7 @@ const AvailableMeals = () => {
                             key={Math.random()}
                             meal={meal}
                         />
-                        <MealItemForm/>
+                        <MealItemForm meal={meal} />
                     </Card>
 
                 </section>

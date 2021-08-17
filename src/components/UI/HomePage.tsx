@@ -9,7 +9,7 @@ export default function HomePage({ history }) {
             </div>
 
             <div className='Home-button-element'>
-                <button  className='Home-Button' onClick={() => history.push("/Meals")} size="huge" inverted>Continue</button>
+                <button  className='Home-Button' onClick={() => history.push("/Meals")} size="huge">Continue</button>
             </div>
         </Fragment>
     );
