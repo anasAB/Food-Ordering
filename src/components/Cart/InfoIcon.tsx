@@ -1,12 +1,8 @@
-import './MealInfo.css'
+import './InfoIcon.css'
 
-const MealInfo = (props) => {
-
-    
-    console.log('infoClick',props);
+const InfoIcon = (props) => {
     function infoClick() {
-        console.log('info Clicked');
-
+        props.handleOpenModal(true)
       }
 
     return (
@@ -17,4 +13,4 @@ const MealInfo = (props) => {
     )
 }
 
-export default MealInfo
+export default InfoIcon

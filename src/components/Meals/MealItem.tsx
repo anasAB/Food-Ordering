@@ -1,14 +1,41 @@
-import MealInfo from '../Cart/MealInfo'
+// import React,{Component} from 'react'
+import React, { useState } from 'react'
+
+import InfoIcon from '../Cart/InfoIcon'
+import Backdrop from '../Layout/Backdrop'
+import Model from '../Layout/Model'
 import './MealItem.css'
+
+
+
 
 const MealItem = (props) => {
     const { meal } = props
-        console.log('props',props);
+    const [modalOpen, setModalOpenSet] = useState(false)
+
+
+    const OpenModalHandler = (ModalState) => {
+        setModalOpenSet(ModalState)
+    }
+
+    const CloseModalHandler = (ModalState) => {
+        setModalOpenSet(ModalState)
+    }
+
+    const modal = modalOpen ?
+        <Backdrop>
+            <Model 
+            show={modalOpen} 
+            closeModal={OpenModalHandler}
+            mealInfo={meal}
+             />
+        </Backdrop> :
+        ''
+
     return (
+        
         <div className="container meal">
-
             <div className="row">
-
                 <div className="col ">
                     {meal.name}
                 </div>
@@ -18,7 +45,9 @@ const MealItem = (props) => {
                 <div className="col price">
                     ${meal.price}
                 </div>
-               <MealInfo mealInfo={meal}/>
+                <InfoIcon InfoIcon={meal} modalOpenState={modalOpen} handleOpenModal={OpenModalHandler} />
+                {modal}
+
 
             </div>
         </div>
