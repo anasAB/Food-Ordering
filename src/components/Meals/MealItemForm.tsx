@@ -1,15 +1,16 @@
 import Input from '../UI/Input'
 import './MealItemForm.css'
 
+
 const MealItemForm = (props) => {
     return (
         <form className='form'>
-            <button className='form button'> Add </button>
+            <button type="button" className="btn btn-primary">Add</button>
             <Input
                 label='Amount'
                 input={
                     {
-                        id: 'amount'+ props.meal.id,
+                        id: 'amount' + props.meal.id,
                         type: 'number',
                         min: '0',
                         max: '5',
@@ -17,6 +18,7 @@ const MealItemForm = (props) => {
                         defaultValue: '1'
                     }} />
         </form>
+   
     )
 }
 

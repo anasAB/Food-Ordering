@@ -22,9 +22,10 @@ const DUMMY_MEALS = [
         description: 'A german specialty!',
         price: 16.5,
         ingredients:{
-            'Schnitzel' :'AAA',
-            'B':'b',
-            'C':'c',
+            'self-rising flour':'self-rising flour',
+            '¼ cup':'self-rising cornmeal',
+            '¼ teaspoon Salt':'Salt',
+            '¼ teaspoon pepper':'pepper',
         }
     },
     {
@@ -32,12 +33,23 @@ const DUMMY_MEALS = [
         name: 'Barbecue Burger',
         description: 'American, raw, meaty',
         price: 12.99,
+        ingredients:{
+            'beef':'2 pounds (32 ounces) 80/20 ground beef',
+            'garlic':'4 cloves garlic',
+            'onion':'2 tablespoons minced onion',
+            'sauce':'Worcestershire sauce',
+            'pepper':'freshly ground pepper',
+            'salt':'salt',
+            'hamburger buns':'hamburger buns',
+            'Butter ':'Butter',
+        }
     },
     {
         id: 'm4',
         name: 'Green Bowl',
         description: 'Healthy...and green...',
         price: 18.99,
+        ingredients:{}
     },
 ];
 
