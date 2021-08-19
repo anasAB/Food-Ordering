@@ -25,4 +25,18 @@
     transition: transform 0.2s ease-in;
     color: rgb(190, 134, 30);
   }
-  
+  .tooltip-wrap {
+    position: relative;
+  }
+  .tooltip-wrap .tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    background-color: #fff;
+    padding: .5em;
+  }
+  .tooltip-wrap:hover .tooltip-content {
+    display: block;
+  }
