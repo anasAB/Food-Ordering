@@ -6,7 +6,7 @@ import Cart from './components/Cart/Cart';
 const Routes = () => (
   <Switch>
     <Route exact path="/Meals" component={Meals}  />
-    <Route path="/mealDetail/:id" component={MealDetail} exact />
+    <Route path="/mealDetail" component={MealDetail} exact />
     <Route path="/Cart"  component={Cart} />
   </Switch>
 );

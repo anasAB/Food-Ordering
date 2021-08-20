@@ -1,7 +1,5 @@
-import Model from '../Layout/Model'
+import MealInfo from '../Layout/MealInfo'
 import './MealItem.css'
-
-
 
 
 const MealItem = (props) => {
@@ -19,7 +17,7 @@ const MealItem = (props) => {
                     ${meal.price}
                 </div>
                 <div className="col">
-                    <Model
+                    <MealInfo
                         mealInfo={meal}
                     />
                 </div>

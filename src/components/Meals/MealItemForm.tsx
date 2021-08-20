@@ -3,9 +3,17 @@ import './MealItemForm.css'
 
 
 const MealItemForm = (props) => {
+    console.log('props',props);
+    
+    
+  const addMealHandler = (event: any) => { 
+      console.log('event',event.target); 
+    // props.onChangeFilter(event.target.value);
+  };
+
     return (
         <form className='form'>
-            <button type="button" className="btn btn-primary">Add</button>
+            <button type="button" className="btn btn-primary" onClick={addMealHandler}>Add</button>
             <Input
                 label='Amount'
                 input={
