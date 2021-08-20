@@ -14,7 +14,8 @@ const MealItem = (props) => {
                     {meal.description}
                 </div>
                 <div className="col price">
-                    ${meal.price}
+                    {meal.price}
+                    <i class="fas fa-dollar-sign"></i>
                 </div>
                 <div className="col">
                     <MealInfo

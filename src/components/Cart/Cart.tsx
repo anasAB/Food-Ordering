@@ -1,7 +1,7 @@
 
 import Modal from './../UI/Modal';
 import './Cart.css'
-
+import { Icon } from 'semantic-ui-react'
 const Cart = (props) => {
     const cartItem = [
         {
@@ -34,7 +34,6 @@ const Cart = (props) => {
 
     const test = cartItem.map(item => {
         return (
-
             <p>{item.name}</p>
         )
     })

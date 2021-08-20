@@ -3,7 +3,6 @@ import Card from '../UI/Card';
 import './AvailableMeals.css'
 import MealItem from './MealItem';
 import MealItemForm from './MealItemForm';
-
 const DUMMY_MEALS = [
     {
         id: 'm1',
