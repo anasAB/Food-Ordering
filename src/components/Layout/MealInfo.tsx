@@ -1,7 +1,7 @@
 import InfoIcon from '../Cart/InfoIcon'
-import './Model.css'
+import './MealInfo.css'
 
-const Model = (props) => {
+const MealInfo = (props) => {
     return (
         <div className="tooltip-wrap">
             <InfoIcon />
@@ -18,4 +18,4 @@ const Model = (props) => {
     )
 }
 
-export default Model
+export default MealInfo
