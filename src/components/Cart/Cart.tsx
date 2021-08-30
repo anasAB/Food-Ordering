@@ -1,7 +1,6 @@
 
 import Modal from './../UI/Modal';
 import './Cart.css'
-import { Icon } from 'semantic-ui-react'
 const Cart = (props) => {
     const cartItem = [
         {
@@ -33,8 +32,11 @@ const Cart = (props) => {
 
 
     const test = cartItem.map(item => {
+        console.log('item',item);
         return (
-            <p>{item.name}</p>
+            <div key={item.id}>
+               <p>{item.name}</p>
+            </div>
         )
     })
 
@@ -45,7 +47,7 @@ const Cart = (props) => {
                 <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foldwayspt.org%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2FFotolia_106693035_healthy-food-board.jpg&f=1&nofb=1' alt='Order-Food' />
             </div>
             <Modal>
-                <h1 style={{ color: 'white' }}>Shopping Cart</h1>
+                <h1>Shopping Cart</h1>
                 {test}
             </Modal>
         </div>

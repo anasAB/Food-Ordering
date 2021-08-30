@@ -1,21 +1,30 @@
+import React, { useContext } from 'react'
 import './HeaderCartButton.css'
 import { useHistory } from "react-router-dom";
+import CartContext from './../../store/cartContext';
 
 
+const HeaderCartButton = (props) => {
 
-const HeaderCartButton = () => {
+
     const history = useHistory();
+    const cartCtx = useContext(CartContext);
+
+
+    const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+        return curNumber + item.amount;
+    }, 0);
+
+    
 
     function handleClick() {
         history.push("/Cart");
     }
 
     return (
-        <button className='button' type='button' onClick={handleClick}  >
-           <span className='icon' ><i class="fas fa-shopping-cart"></i>
-            </span>
-            <span> Your Cart</span>
-            <span className='badge'> 3</span>
+        <button className='button' type='button' onClick={handleClick} disabled={!numberOfCartItems} style={{ color: numberOfCartItems > 0 ? 'green' : 'red' }}>
+            <span className='icon' ><i className="fas fa-shopping-cart"></i></span>
+            <span className='badge'> {numberOfCartItems}</span>
         </button >
     )
 }
