@@ -1,9 +1,8 @@
-import './App.css';
 import { Fragment } from 'react';
 import { Route, BrowserRouter } from "react-router-dom";
 import HomePage from './components/UI/HomePage';
-import Routes from './Routes';
-import Cart from './components/Cart/Cart';
+import Routes from './Routing/Routes';
+import './App.css';
 
 
 function App() {

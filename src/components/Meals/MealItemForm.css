@@ -6,12 +6,13 @@
   .form button {
     font: inherit;
     cursor: pointer;
-    background-color: #8a2b06;
-    border: 1px solid #8a2b06;
+    background-color: #303640;
+    border: 1px solid #303640;
     color: white;
     padding: 0.25rem 2rem;
     border-radius: 20px;
     font-weight: bold;
+    margin: 5ex;
   }
   
   .form button:hover,
