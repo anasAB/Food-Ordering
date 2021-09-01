@@ -1,45 +1,21 @@
-
+import React, { useContext } from 'react'
 import Modal from './../UI/Modal';
 import './Cart.css'
+import CartContext from './../../store/cartContext';
+
 const Cart = (props) => {
-    const cartItem = [
-        {
-            id: 'm1',
-            name: 'Sushi',
-            description: 'Finest fish and veggies',
-            price: 22.99,
-            amount: '',
-            ingredients: {
-                'Sushi Rice': 'Sushi-Meshi',
-                'Japanese rice vinegar': 'Komezu',
-                'flavoring': 'Kombu',
-            }
-        },
-        {
-            id: 'm2',
-            name: 'Schnitzel',
-            description: 'A german specialty!',
-            price: 16.5,
-            amount: '',
-            ingredients: {
-                'self-rising flour': 'self-rising flour',
-                '¼ cup': 'self-rising cornmeal',
-                '¼ teaspoon Salt': 'Salt',
-                '¼ teaspoon pepper': 'pepper',
-            }
-        }
-    ]
+  
+    const cartCtx = useContext(CartContext);
 
+    const test = cartCtx.items.map(item => {
 
-    const test = cartItem.map(item => {
-        console.log('item',item);
-        return (
-            <div key={item.id}>
-               <p>{item.name}</p>
-            </div>
-        )
+        return (<div key={Math.random()}>
+            <h1>{item.name}</h1>
+        </div>)
+
     })
 
+    console.log('itemxx', test);
 
     return (
         <div>

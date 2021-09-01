@@ -2,7 +2,6 @@
 import AvailableMeals from './AvailableMeals';
 import MealsSummary from './MealsSummary';
 import Header from './../Layout/Header';
-import CartProvider from './../../store/cartProvider';
 
 const DUMMY_MEALS = [
     {
@@ -10,11 +9,11 @@ const DUMMY_MEALS = [
         name: 'Sushi',
         description: 'Finest fish and veggies',
         price: 22.99,
-        amount:'',
-        ingredients:{
-            'Sushi Rice' :'Sushi-Meshi',
-            'Japanese rice vinegar':'Komezu',
-            'flavoring':'Kombu',
+        amount: '',
+        ingredients: {
+            'Sushi Rice': 'Sushi-Meshi',
+            'Japanese rice vinegar': 'Komezu',
+            'flavoring': 'Kombu',
         }
     },
     {
@@ -22,12 +21,12 @@ const DUMMY_MEALS = [
         name: 'Schnitzel',
         description: 'A german specialty!',
         price: 16.5,
-        amount:'',
-        ingredients:{
-            'self-rising flour':'self-rising flour',
-            '¼ cup':'self-rising cornmeal',
-            '¼ teaspoon Salt':'Salt',
-            '¼ teaspoon pepper':'pepper',
+        amount: '',
+        ingredients: {
+            'self-rising flour': 'self-rising flour',
+            '¼ cup': 'self-rising cornmeal',
+            '¼ teaspoon Salt': 'Salt',
+            '¼ teaspoon pepper': 'pepper',
         }
     },
     {
@@ -35,16 +34,16 @@ const DUMMY_MEALS = [
         name: 'Barbecue Burger',
         description: 'American, raw, meaty',
         price: 12.99,
-        amount:'',
-        ingredients:{
-            'beef':'2 pounds (32 ounces) 80/20 ground beef',
-            'garlic':'4 cloves garlic',
-            'onion':'2 tablespoons minced onion',
-            'sauce':'Worcestershire sauce',
-            'pepper':'freshly ground pepper',
-            'salt':'salt',
-            'hamburger buns':'hamburger buns',
-            'Butter ':'Butter',
+        amount: '',
+        ingredients: {
+            'beef': '2 pounds (32 ounces) 80/20 ground beef',
+            'garlic': '4 cloves garlic',
+            'onion': '2 tablespoons minced onion',
+            'sauce': 'Worcestershire sauce',
+            'pepper': 'freshly ground pepper',
+            'salt': 'salt',
+            'hamburger buns': 'hamburger buns',
+            'Butter ': 'Butter',
         }
     },
     {
@@ -52,21 +51,20 @@ const DUMMY_MEALS = [
         name: 'Green Bowl',
         description: 'Healthy...and green...',
         price: 18.99,
-        amount:'',
-        ingredients:{}
+        amount: '',
+        ingredients: { }
     },
 ];
 
 
 const Meals = () => {
-  
 
     return (
-        <CartProvider>
-            <Header/>
+        <>
+            <Header />
             <MealsSummary />
             <AvailableMeals meals={DUMMY_MEALS} />
-        </CartProvider>
+        </>
     )
 }
 
