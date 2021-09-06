@@ -1,21 +1,32 @@
 import React, { useContext } from 'react'
-import Modal from './../UI/Modal';
-import './Cart.css'
 import CartContext from './../../store/cartContext';
+import Modal from './../UI/Modal';
+import { useHistory } from "react-router-dom";
+import './Cart.css'
 
 const Cart = (props) => {
-  
+    
+    const history = useHistory();
     const cartCtx = useContext(CartContext);
 
-    const test = cartCtx.items.map(item => {
-
-        return (<div key={Math.random()}>
-            <h1>{item.name}</h1>
-        </div>)
-
+    const foodElement = cartCtx.items.map(item => {
+        return (
+            <div key={Math.random()}>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{item.name}</td>
+                            <td>{item.price} <i className="fas fa-dollar-sign"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>)
     })
 
-    console.log('itemxx', test);
+
+    const cancelHandler = () =>{
+        history.goBack()
+    }
 
     return (
         <div>
@@ -24,7 +35,11 @@ const Cart = (props) => {
             </div>
             <Modal>
                 <h1>Shopping Cart</h1>
-                {test}
+                {foodElement}
+                <p style={{margin:'10px'}}>Total Price:{cartCtx.totalAmount}</p>
+                <button type="button" className="btn btn-outline-danger" style={{margin:'10px'}} onClick={cancelHandler}> Cancel </button>
+
+                <button type="button" className="btn btn-outline-success"style={{margin:'10px'}}> Continue </button>
             </Modal>
         </div>
     )
