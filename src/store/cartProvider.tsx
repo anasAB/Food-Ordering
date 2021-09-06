@@ -1,3 +1,4 @@
+
 import { useReducer } from 'react';
 import CartContext from './cartContext';
 
@@ -11,14 +12,35 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
     switch (action.type) {
         case 'ADD-ITEM':
-            const updatedItems = state.items.concat(action.item);
-            const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;          
+
+            let updatedItems;
+            let updatedItem;
+
+            const existedItemIndex = state.items.findIndex((item) => item.id === action.item.id)
+            const existingCartItem = state.items[existedItemIndex]
+
+             if (existingCartItem) {
+              
+                 updatedItem ={
+                     ...existingCartItem,
+                     amount: existingCartItem.amount + action.item.amount
+                 };
+
+                 updatedItems=[...state.items];
+                 updatedItems[existedItemIndex] = updatedItem
+             }else{
+                 updatedItems = [action.item, ...state.items];
+             }
+            const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
+   
             return {
                 items: updatedItems,
-                totalAmount:updatedTotalAmount,
+                totalAmount: updatedTotalAmount,
             }
+            
         case 'REMOVE-ITEM':
-            return 
+         
+            return
         default:
             return defaultCartState
     }
@@ -27,13 +49,16 @@ const cartReducer = (state, action) => {
 
 const CartProvider = (props) => {
 
-    const [cartState, dispatchCartAction] = useReducer(cartReducer,defaultCartState )
+    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
 
     const addItem = (item) => {
-       dispatchCartAction({type:'ADD-ITEM', item})
+        dispatchCartAction({ type: 'ADD-ITEM', item })
     }
 
-    const removeItem = (id) => {}
+    const removeItem = (id) => {
+        console.log('provider', id);
+        // dispatchCartAction({type:'REMOVE-ITEM',id})
+    }
 
     const cartContext = {
         items: cartState.items,
