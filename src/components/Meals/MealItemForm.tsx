@@ -4,12 +4,16 @@ import './MealItemForm.css'
 
 
 const MealItemForm = (props) => {
+
+    const { meal } = props
     const amountInputRef = useRef();
-    const [amountIsValid,setAmountIsValid] = useState(true);
+    const [amountIsValid, setAmountIsValid] = useState(true);
 
     const SubmitFormHandler = (submitEvent) => {
         submitEvent.preventDefault();
+    }
 
+    const addItem = () => {
         const enteredAmount = amountInputRef.current.value;
         const enteredAmountNumber = +enteredAmount;
 
@@ -17,15 +21,14 @@ const MealItemForm = (props) => {
             setAmountIsValid(false)
             return;
         }
-        
         props.onAddToCart(enteredAmountNumber);
     }
 
-
+   
     return (
         <form className='form' onSubmit={SubmitFormHandler}>
 
-            <button >
+            <button onClick={addItem}>
                 <i className="fas fa-plus"></i>
             </button>
 
@@ -34,24 +37,26 @@ const MealItemForm = (props) => {
                 label='Amount'
                 input={
                     {
-                        id: 'amount' + props.meal.id,
+                        id: 'amount' + meal.id,
                         type: 'number',
                         min: '0',
                         max: '5',
                         step: '1',
                         defaultValue: '1',
-                        amount: props.meal.amount,
+                        amount: meal.amount,
 
                     }} />
 
-            <button >
+            <button onClick={() => props.onRemoveItem(meal.id)}  >
                 <i className="fas fa-minus"></i>
             </button>
             {!amountIsValid && <p>UnValid Amount</p>}
 
         </form>
-
     )
+
+
+
 }
 
 export default MealItemForm

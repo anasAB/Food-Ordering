@@ -6,6 +6,7 @@ import CartContext from './../../store/cartContext'
 
 
 const MealItem = (props) => {
+
     const { meal } = props;
     const cartCtx = useContext(CartContext)
 
@@ -18,6 +19,11 @@ const MealItem = (props) => {
             price: meal.price
         })
     }
+
+    const removeItem = (id) => {
+        cartCtx.removeItem(id)
+    }
+
 
     return (
         <div className="container meal">
@@ -38,7 +44,7 @@ const MealItem = (props) => {
                     />
                 </div>
             </div>
-            <MealItemForm meal={meal} onAddToCart={addToCartHandler} />
+            <MealItemForm meal={meal} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
         </div>
     )
 }

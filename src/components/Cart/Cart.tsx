@@ -5,26 +5,36 @@ import { useHistory } from "react-router-dom";
 import './Cart.css'
 
 const Cart = (props) => {
-    
+
     const history = useHistory();
     const cartCtx = useContext(CartContext);
 
+
+    // const addItemToCartHandler = (item) => {
+    //     cartCtx.add
+    // }
+
     const foodElement = cartCtx.items.map(item => {
         return (
-            <div key={Math.random()}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>{item.name}</td>
-                            <td>{item.price} <i className="fas fa-dollar-sign"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>)
+            <div className="container" key={Math.random()} >
+                <div className="row table" >
+                    <div className="col">
+                        {item.name}
+                    </div>
+                    <div className="col">
+                        Amount: {item.amount}
+                    </div>
+                    <div className="col">
+                        <i className="fas fa-dollar-sign"> {(item.amount * item.price)} </i>
+                    </div>
+                    
+                </div>
+            </div>
+        )
     })
 
 
-    const cancelHandler = () =>{
+    const cancelHandler = () => {
         history.goBack()
     }
 
@@ -36,10 +46,12 @@ const Cart = (props) => {
             <Modal>
                 <h1>Shopping Cart</h1>
                 {foodElement}
-                <p style={{margin:'10px'}}>Total Price:{cartCtx.totalAmount}</p>
-                <button type="button" className="btn btn-outline-danger" style={{margin:'10px'}} onClick={cancelHandler}> Cancel </button>
+                <div className='total-price'>
+                    Total Price:{(cartCtx.totalAmount).toFixed(2)}
+                </div>
+                <button type="button" className="btn btn-outline-danger" style={{ margin: '10px' }} onClick={cancelHandler}> Cancel </button>
 
-                <button type="button" className="btn btn-outline-success"style={{margin:'10px'}}> Continue </button>
+                <button type="button" className="btn btn-outline-success" style={{ margin: '10px' }}> Continue </button>
             </Modal>
         </div>
     )
