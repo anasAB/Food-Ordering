@@ -14,7 +14,8 @@ const DUMMY_MEALS = [
             'Sushi Rice': 'Sushi-Meshi',
             'Japanese rice vinegar': 'Komezu',
             'flavoring': 'Kombu',
-        }
+        },
+        image:'https://paleofoundation.com/wp-content/uploads/2013/10/paleo-sushi.jpg'
     },
     {
         id: 'm2',
@@ -27,7 +28,8 @@ const DUMMY_MEALS = [
             '¼ cup': 'self-rising cornmeal',
             '¼ teaspoon Salt': 'Salt',
             '¼ teaspoon pepper': 'pepper',
-        }
+        },
+        image:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.josefsvienna.com%2Fwp-content%2Fuploads%2F2014%2F05%2Fjosefs-chicken-schnitzel.jpg&f=1&nofb=1'
     },
     {
         id: 'm3',
@@ -44,7 +46,8 @@ const DUMMY_MEALS = [
             'salt': 'salt',
             'hamburger buns': 'hamburger buns',
             'Butter ': 'Butter',
-        }
+        },
+        image:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbestmonumentdentist.com%2Fwp-content%2Fuploads%2F2019%2F05%2FAdobeStock_127928024.jpeg&f=1&nofb=1'
     },
     {
         id: 'm4',
@@ -52,7 +55,8 @@ const DUMMY_MEALS = [
         description: 'Healthy...and green...',
         price: 18.99,
         amount: '',
-        ingredients: { }
+        ingredients: { },
+        image:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F28%2Fe9%2Fda%2F28e9da5d3847b260191a9f80650d3e7f.jpg&f=1&nofb=1'
     },
 ];
 

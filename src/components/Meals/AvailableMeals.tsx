@@ -13,20 +13,15 @@ const AvailableMeals = (props) => {
         <Fragment>
             {meals.map(meal => (
                 <section key={Math.random()} className='meals'>
-                    <Card>
                         <MealItem
                             key={Math.random()}
                             id={meal.id}
                             meal={meal}
                         />
-                    </Card>
                 </section>
             ))
             }
         </Fragment>
     );
-
-
-
 }
 export default AvailableMeals

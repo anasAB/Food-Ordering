@@ -26,25 +26,19 @@ const MealItem = (props) => {
 
 
     return (
-        <div className="container meal">
-            <div className="row">
-                <div className="col ">
-                    {meal.name}
-                </div>
-                <div className="col description">
-                    {meal.description}
-                </div>
-                <div className="col price">
-                    {meal.price}
-                    <i className="fas fa-dollar-sign"></i>
-                </div>
-                <div className="col">
-                    <MealInfo
-                        mealInfo={meal}
-                    />
-                </div>
+        <div className='meal' >
+            <img className="card-img-top image" src={meal.image} alt="Card image cap"></img>
+            <div className="card-body">
+                <h5 className="card-title">{meal.name}</h5>
+                <p className="card-text">{meal.description}</p>
+                <MealInfo
+                    mealInfo={meal}
+                />
             </div>
-            <MealItemForm meal={meal} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
+            <div className="card-footer">
+                <MealItemForm meal={meal} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
+            </div>
+            <p className="card-text price">{meal.price}</p>
         </div>
     )
 }
