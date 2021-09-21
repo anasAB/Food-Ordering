@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import Card from '../UI/Card';
+import React from 'react'
 import './AvailableMeals.css'
 import MealItem from './MealItem';
 
@@ -7,22 +6,18 @@ import MealItem from './MealItem';
 
 const AvailableMeals = (props) => {
     let { meals } = props;
-
-    return (
+    return (    
         <div className='meals' >
             <div className="container">
                 <div className="row">
                     {meals.map(meal => (
-                        <div className="col-sm meal_item" >
+                        <div className="col-sm meal_item" key={Math.random()} >
                             <MealItem
-                                key={Math.random()}
                                 id={meal.id}
                                 meal={meal}
                             />
                         </div>
-
                     ))}
-
                 </div>
             </div>
         </div>

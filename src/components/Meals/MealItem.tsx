@@ -4,7 +4,6 @@ import './MealItem.css'
 import MealItemForm from './MealItemForm'
 import CartContext from './../../store/cartContext'
 
-
 const MealItem = (props) => {
 
     const { meal } = props;
@@ -27,7 +26,7 @@ const MealItem = (props) => {
 
     return (
         <div className='meal' >
-            <img className="card-img-top image" src={meal.image} alt="Card image cap"></img>
+            <img className="card-img-top image" loading="lazy" src={meal.image} alt={meal.name} />
             <div className="card-body">
                 <h5 className="card-title">{meal.name}</h5>
                 <p className="card-text">{meal.description}</p>
