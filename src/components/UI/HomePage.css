@@ -35,12 +35,11 @@
     letter-spacing: 10px;
     border-radius: 20% 5%; 
     background: transparent;
-    color: #d69b9a9a;
     transition: 500ms linear; 
 }
 
 .Home-Button:hover {
-  color: #da221f;
+  color: #0f0c0b;
   border-radius: 25% 10%; 
 
   }

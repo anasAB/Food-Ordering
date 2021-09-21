@@ -1,60 +1,58 @@
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 5rem;
-    background-color: rgba(133, 132, 131, 0.911);
+    background-color: rgb(255 251 247 / 91%);
     opacity: 0.7;
-    color: rgb(209, 12, 12);
+    color: rgb(189, 148, 72);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 10;
-    transition: width 2s, height 2s, transform 2s;  }
+    transition: width 2s, height 2s, transform 2s;  
+}
 
-    .header:hover{
-      opacity: 1;
-    }
 
-   .header h1{
-    transition: width 2s, height 2s, transform 2s;
-   } 
+.header:hover{
+  opacity: 1;
+}
 
-  .header h1:hover{
-    color: orange;
-    transform: rotate(20deg);
-  }
+.header h1{
+  transition: width 2s, height 2s, transform 2s;
+} 
+
+.header h1:hover{
+  color: rgb(189, 148, 72);
+  transform: rotate(20deg);
+}
   
-  .main-image {
-    width: 100%;
-    height: 25rem;
-    z-index: 1;
-    overflow: hidden;
-    animation: img-appear 1s ease-out forwards;
-
-  }
+.main-image {
+  width: 100%;
+  height: 25rem;
+  z-index: 1;
+  overflow: hidden;
+  animation: img-appear 1s ease-out forwards;
+}
   
-  .main-image img {
-    width: 110%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transform: rotateZ(-4deg) translateY(-4rem) translateX(-1rem);
+.main-image img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transform: rotateZ(-4deg) translateY(-4rem) translateX(-1rem);
+}
+
+
+@keyframes img-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
   }
 
-
-  @keyframes img-appear {
-    from {
-      opacity: 0;
-      transform: translateY(3rem);
-    }
-  
-    to {
-      opacity: 0.9;
-
-      transform: translateY(0);
-    }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
   }
+}
