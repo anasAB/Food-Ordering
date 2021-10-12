@@ -1,4 +1,4 @@
-
+import React from 'react'
 import AvailableMeals from './AvailableMeals';
 import MealsSummary from './MealsSummary';
 import Header from './../Layout/Header';

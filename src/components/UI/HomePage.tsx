@@ -1,5 +1,5 @@
 import './HomePage.css';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 export default function HomePage({ history }) {
     return (

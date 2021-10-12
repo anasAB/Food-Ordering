@@ -26,9 +26,9 @@ const MealItem = (props) => {
 
     return (
         <div className='meal' >
-            <img className="card-img-top image" loading="lazy" src={meal.image} alt={meal.name} />
+            {/* <img className="card-img-top image" loading="lazy" src={meal.image} alt={meal.name} /> */}
             <div className="card-body">
-                <h5 className="card-title">{meal.name}</h5>
+                <h3 className="card-title">{meal.name}</h3>
                 <p className="card-text">{meal.description}</p>
                 <MealInfo
                     mealInfo={meal}

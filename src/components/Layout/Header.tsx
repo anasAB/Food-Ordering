@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import './Header.css'
 import HeaderCartButton from './HeaderCartButton'
 import { useHistory } from "react-router-dom";

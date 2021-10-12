@@ -1,3 +1,4 @@
+import React from 'react'
 import './MealInfo.css'
 
 const MealInfo = (props) => {

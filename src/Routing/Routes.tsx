@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Switch } from 'react-router-dom';
 import MealDetail from './../components/Meals/MealDetail';
 import Meals from './../components/Meals/Meals';

@@ -1,42 +1,40 @@
 const path = require('path');
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.tsx'),
   module: {
     rules: [
       {
-        test: /\.(js||tsx)$/,
+        test: /\.(js|tsx)$/,
         exclude: /node_modules/,
-        use: 'raw-loader'
+        use: ['babel-loader']
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.(sass|scss|css)$/,
+        use: ['style-loader','css-loader']
       },
-    ],
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        }
+      },
+    ]
   },
 
 
+  
   resolve: {
-    extensions: ['*', '.tsx', '.js'],
+    extensions: ['*', '.js', '.tsx']
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './dist/'),
     filename: 'bundle.js',
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Hello Webpack bundled JavaScript Project',
-      template: path.resolve(__dirname, './src/index.tsx'),
-    })
-  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
   },
 };
-
-

@@ -3,6 +3,7 @@ import CartContext from './../../store/cartContext';
 import Modal from './../UI/Modal';
 import { useHistory } from "react-router-dom";
 import './Cart.css'
+// import MyImage from './assets/images/myimage.jpg';
 
 const Cart = (props) => {
 
@@ -27,7 +28,7 @@ const Cart = (props) => {
                     <div className="col">
                         <i className="fas fa-dollar-sign"> {(item.amount * item.price)} </i>
                     </div>
-                    
+
                 </div>
             </div>
         )
@@ -43,6 +44,10 @@ const Cart = (props) => {
             <div className='Order-Page'>
                 <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foldwayspt.org%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2FFotolia_106693035_healthy-food-board.jpg&f=1&nofb=1' alt='Order-Food' />
             </div>
+            {/* <div className='Order-Page'>
+                <img src={MyImage} alt="torchlight in the sky" />
+            </div> */}
+
             <Modal>
                 <h1>Shopping Cart</h1>
                 {foodElement}
