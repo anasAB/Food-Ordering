@@ -2,8 +2,7 @@ import React from 'react'
 import './MealItemForm.css'
 
 const MealItemForm = (props) => {
-
-    const { meal } = props
+    const { id } = props
 
     const SubmitFormHandler = (submitEvent) => {
         submitEvent.preventDefault();
@@ -23,7 +22,7 @@ const MealItemForm = (props) => {
                 <i className="fas fa-plus"></i>
             </button>
 
-            <button onClick={() => props.onRemoveItem(meal.id)} >
+            <button onClick={() => props.onRemoveItem(id)} >
                 <i className="fas fa-minus"></i>
             </button>
 
