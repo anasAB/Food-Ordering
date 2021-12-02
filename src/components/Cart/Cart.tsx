@@ -9,14 +9,9 @@ const Cart = (props) => {
     const history = useHistory();
     const cartCtx = useContext(CartContext);
 
-
-    // const addItemToCartHandler = (item) => {
-    //     cartCtx.add
-    // }
-
     const foodElement = cartCtx.items.map(item => {
         return (
-            <div className="container" key={Math.random()} >
+            <div className="container" key={item.id} >
                 <div className="row table" >
                     <div className="col">
                         {item.name}
@@ -27,7 +22,7 @@ const Cart = (props) => {
                     <div className="col">
                         <i className="fas fa-dollar-sign"> {(item.amount * item.price)} </i>
                     </div>
-                    
+
                 </div>
             </div>
         )
