@@ -40,7 +40,8 @@
 
   .home-Button
   button:hover {
-    background-color: hsl(204deg 74% 13% / 50%);
+    /* background-color: hsl(204deg 74% 13% / 50%); */
+    background-color: hsl(55deg 90% 46% / 27%);
   }
 
   .home-Button
@@ -56,7 +57,7 @@
     background-color: hsl(205deg 65% 10%);;
     transform-origin: center;
     transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
-    transition: transform 0.45s ease-in-out;
+    transition: transform 0.45s ease-in-out; 
   }
 
   .home-Button

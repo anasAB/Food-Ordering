@@ -6,7 +6,7 @@ import CartContext from './../../store/cartContext'
 
 const MealItem = (props) => {
 
-    const { id,name,description,price,image,ingredients } = props.meal;
+    const { id, name, description, price, image, ingredients } = props.meal;
     const cartCtx = useContext(CartContext)
 
     const addToCartHandler = (amount) => {
@@ -25,20 +25,23 @@ const MealItem = (props) => {
 
 
     return (
-        <div className='meal' >
-            <img className="card-img-top image" loading="lazy" src={image} alt={name} />
-            <div className="card-body">
+        <div className="card bg-dark text-white">
+            <img className="card-img-top" loading="lazy" src={image} alt={name} />
+
+            <div className="card-img-overlay">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{description}</p>
-                <MealInfo
-                    ingredients={ingredients}
-                />
+
+                <div className='cardBottom'>
+                    <div className='formItem'>
+                        <MealItemForm id={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
+                    </div>
+                    <p className="card-text"><i className="fas fa-utensils"><MealInfo ingredients={ingredients} /></i></p>
+                </div>
+
             </div>
-            <div className="card-footer">
-                <MealItemForm id ={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
-            </div>
-            <p className="card-text price">{price}</p>
         </div>
+
     )
 }
 

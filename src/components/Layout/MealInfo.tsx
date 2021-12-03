@@ -5,7 +5,7 @@ const MealInfo = (props) => {
     return (
         <div>
             <div className="tooltip-wrap">
-                <i className="fas fa-info" size="large"></i>
+                {/* <i className="fas fa-info" size="large"></i> */}
                 <div className="tooltip-content">
                     {ingredients && Object.keys(ingredients).length > 0 ?
                         Object.keys(ingredients).map(key => (
@@ -15,6 +15,7 @@ const MealInfo = (props) => {
                 </div>
             </div>
         </div>
+        // <p>Ingredients</p>
     )
 }
 
