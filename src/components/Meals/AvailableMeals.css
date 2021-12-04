@@ -1,11 +1,17 @@
-.availableMeals {
-    animation: meals-appear 1s ease-out forwards;
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-    position: inherit;
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+  animation: meals-appear 1s ease-out forwards;
+  margin: 20px;
 }
 
+.container-fostrap {
+  display: table-cell;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
 
 @keyframes meals-appear {
   from {
@@ -19,7 +25,3 @@
   }
 }
 
-
-.mealItem{
-  margin-top: 3em;
-}

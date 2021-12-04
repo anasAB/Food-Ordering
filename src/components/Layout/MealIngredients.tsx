@@ -1,11 +1,11 @@
-import './MealInfo.css'
+import './MealIngredients.css'
 
-const MealInfo = (props) => {
+const MealIngredients = (props) => {
     const { ingredients } = props
     return (
         <div>
             <div className="tooltip-wrap">
-                {/* <i className="fas fa-info" size="large"></i> */}
+                <i className="fas fa-utensils"/>
                 <div className="tooltip-content">
                     {ingredients && Object.keys(ingredients).length > 0 ?
                         Object.keys(ingredients).map(key => (
@@ -15,8 +15,7 @@ const MealInfo = (props) => {
                 </div>
             </div>
         </div>
-        // <p>Ingredients</p>
     )
 }
 
-export default MealInfo
+export default MealIngredients

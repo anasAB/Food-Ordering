@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
-import MealInfo from '../Layout/MealInfo'
-import './MealItem.css'
+// import MealIngredients from '../Layout/MealIngredients'
+import './MealCard.css'
 import MealItemForm from './MealItemForm'
-import CartContext from './../../store/cartContext'
+import CartContext from '../../store/cartContext'
 
-const MealItem = (props) => {
-
-    const { id, name, description, price, image, ingredients } = props.meal;
+const MealCard = (props) => {
+    const { id, name, description, price, image } = props.meal;
     const cartCtx = useContext(CartContext)
 
     const addToCartHandler = (amount) => {
@@ -25,24 +24,18 @@ const MealItem = (props) => {
 
 
     return (
-        <div className="card bg-dark text-white">
+        <div className="card bg-dark">
             <img className="card-img-top" loading="lazy" src={image} alt={name} />
-
             <div className="card-img-overlay">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{description}</p>
-
-                <div className='cardBottom'>
-                    <div className='formItem'>
-                        <MealItemForm id={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
-                    </div>
-                    <p className="card-text"><i className="fas fa-utensils"><MealInfo ingredients={ingredients} /></i></p>
+                <div className='card-content'>
+                    <MealItemForm id={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
+                    {/* <p className="card-text"><i className="fas fa-utensils"><MealIngredients ingredients={ingredients} /></i></p> */}
                 </div>
-
             </div>
         </div>
-
     )
 }
 
-export default MealItem
+export default MealCard
