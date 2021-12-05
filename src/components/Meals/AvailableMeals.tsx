@@ -13,7 +13,7 @@ const AvailableMeals = (props) => {
                     <div className="container">
                         <div className="row">
                             {meals.map(meal => (
-                                <div className="col-xs-12 col-sm-6">
+                                <div className="col-xs-12 col-sm-6" key={meal.id}>
                                     <MealCard meal={meal} />
                                 </div>
                             ))}

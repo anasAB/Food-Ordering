@@ -2,23 +2,51 @@
     text-align: center;
     display: inline-flex;
   }
-  
-  .form button {
-    font: inherit;
-    cursor: pointer;
-    background-color: #303640;
-    border: 1px solid #303640;
-    color: white;
-    padding: 0.25rem 2rem;
-    border-radius: 20px;
-    font-weight: bold;
-    margin: 5ex;
-  }
-  
-  .form button:hover,
-  .form button:active {
-    background-color: #641e03;
-    border-color: #641e03;
-  }
+
+ .form button{
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  color: orange;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  border-radius:10px ;
+  background-color: hsl(236, 32%, 26%);
+  margin: 10px;
+  width: 100%;
+ }
+
+ .form button:hover {
+   cursor: pointer;
+ }
+
+ .form button::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 4px solid hsl(236, 32%, 26%);
+  transform-origin: center;
+  transform: scale(1);
+}
 
 
+.form button:hover::before {
+  transition: all 0.75s ease-in-out;
+  transform-origin: center;
+  transform: scale(1.75);
+  opacity: 0;
+}
+
+.removeButton{
+  display: none;
+}
+
+.activeRemoveButton{
+  color:green;
+  display: block;
+}
