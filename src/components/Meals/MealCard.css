@@ -8,6 +8,7 @@
   transform: scale(0.9, 0.9);
   transition: transform 0.2s ease-in;
   opacity: 0.7;
+  position: relative;
 }
 
 .card:hover {
@@ -17,25 +18,38 @@
   color: rgb(221, 55, 13);
 }
 
-.card:hover .card-content{
-  animation: meals-appear 1s ease-out forwards;
+.my-img-container {
+  position: relative;
+  padding-top: 50%;
 }
 
 .card-img-top {
-  width: 100%;
   border-top-left-radius:2px;
   border-top-right-radius:2px;
   display:block;
   overflow: hidden;
+  position: absolute;
   opacity: 0.8;
   object-fit:cover;
   transition: all .25s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .card-content {
- margin-top: 7em;
- opacity: 0;
+  /* display: contents; */
+  /* position: fixed; */
+  margin-top: 5em;
+  opacity: 1;
  }
+
+ .card:hover .card-content{
+  animation: meals-appear 1s ease-out forwards;
+}
 
 .card-title {
   margin-top:0px;
@@ -58,3 +72,6 @@
     transform: translateY(0);
   }
 }
+
+
+

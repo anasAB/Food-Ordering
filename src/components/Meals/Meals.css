@@ -1,0 +1,23 @@
+.isLoading{
+    display: inline-block;
+    position: fixed;
+    margin-top: 5em;
+}
+
+.loadingBox {
+    perspective: 120px;
+  }
+
+  .loadingCoin {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 4px solid #1454ca;
+    animation: spin 1.5s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotateY(540deg);
+    }
+  }

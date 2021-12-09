@@ -3,7 +3,7 @@ import AvailableMeals from './AvailableMeals';
 import MealsSummary from './MealsSummary';
 import Header from './../Layout/Header';
 import Spinner from 'src/utils/Spinner';
-
+import './Meals.css'
 
 
 // const DUMMY_MEALS = [
@@ -67,6 +67,8 @@ import Spinner from 'src/utils/Spinner';
 const Meals = () => {
     const [meals, setMeals] = useState([])
     const [fetchStatus, setFetchStatus] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
+
 
 
     useEffect(() => {
@@ -94,9 +96,16 @@ const Meals = () => {
         }
         fetchData()
         setFetchStatus(true)
+        setIsLoading(false)
     }, [])
 
-
+    let pageLoading = isLoading ?
+        <section className='isLoading'>
+            <div className="loadingBox">
+                <div className="loadingCoin" />
+            </div>
+        </section> :
+        <AvailableMeals meals={meals} />
 
     return (
         <>
@@ -104,10 +113,12 @@ const Meals = () => {
                 <>
                     <Header />
                     <MealsSummary />
-                    <AvailableMeals meals={meals} />
-                </>}
+                    {pageLoading}
+                </>
+            }
         </>
     )
+
 }
 
 export default Meals

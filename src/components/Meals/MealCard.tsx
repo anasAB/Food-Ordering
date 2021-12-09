@@ -25,7 +25,9 @@ const MealCard = (props) => {
 
     return (
         <div className="card bg-dark">
-            <img className="card-img-top" loading="lazy" src={image} alt={name} />
+            <div className='my-img-container'>
+                <img className="card-img-top " loading="lazy" src={image} alt={name} />
+            </div>
             <div className="card-img-overlay">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{description}</p>
