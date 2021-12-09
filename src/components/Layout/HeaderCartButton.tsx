@@ -18,7 +18,7 @@ const HeaderCartButton = (props) => {
     
 
     function handleClick() {
-        history.push("/Cart");
+        history.push("/ShoppingCart");
     }
 
     return (
