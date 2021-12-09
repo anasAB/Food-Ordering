@@ -24,10 +24,12 @@ const MealItemForm = (props) => {
     let activeRemoveButton = mealAmount[0] && mealAmount[0].amount && 'activeRemoveButton'
     return (
         <form className='form' onSubmit={SubmitFormHandler}>
+
             <button onClick={addItem}>
                 <i className="fas fa-plus"></i>
             </button>
-            <button className={`removeButton ${activeRemoveButton}`} onClick={() => props.onRemoveItem(id)} /*style={{color:activeButton,}} disabled*/ >
+
+            <button className={`removeButton ${activeRemoveButton}`} onClick={() => props.onRemoveItem(id)} >
                 <i className="fas fa-minus"></i>
             </button>
 
