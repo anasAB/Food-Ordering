@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useCallback } from 'react'
 import CartContext from '../../store/cartContext';
-import Modal from '../UI/Modal';
 import { useHistory } from "react-router-dom";
+import Modal from '../UI/Modal';
 import './ShoppingCart.css'
+import Buttons from './../../utils/Buttons';
 
 
 
@@ -12,33 +13,16 @@ const ShoppingCart = () => {
     const cartCtx = useContext(CartContext);
     const [ShoppingItems, setShoppingItems] = useState(true)
 
+    const cancelHandler = useCallback(() => {
+        history.push('/Meals')
+    }, [history]);
 
     useEffect(() => {
         cartCtx.items.length > 0 ? setShoppingItems(true) : setShoppingItems(false)
-
-    }, [cartCtx.items, ShoppingItems])
-
-    const cancelHandler = () => {
-        history.goBack()
-    }
-
-    let shoppingLoading = ''
-    if (!ShoppingItems) {
-
-        shoppingLoading = (
-            <>
-                <div className="balls">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <br />
-                <br />
-                <p>The Package shop is empty</p>
-            </>
-        )
-    }
-
+        if (!ShoppingItems) {
+            cancelHandler()
+        }
+    }, [cartCtx.items, ShoppingItems, cancelHandler])
 
 
     const foodElement = cartCtx.items.map(item => {
@@ -72,12 +56,10 @@ const ShoppingCart = () => {
                     {foodElement}
                 </table>
                 <div className='total-price'>
-                    <i class="fas fa-euro-sign"> {(cartCtx.totalAmount).toFixed(2)}</i>
+                    <i className="fas fa-euro-sign"> {(cartCtx.totalAmount).toFixed(2)}</i>
                 </div>
-                {shoppingLoading}
-                <button type="button" className="btn btn-outline-danger" style={{ margin: '10px' }} onClick={cancelHandler}> Back </button>
-
-                <button type="button" className="btn btn-outline-success" style={{ margin: '10px' }}> Continue </button>
+                <Buttons handleButtonClick={cancelHandler} iconType='chevron-circle-left'> Back</Buttons>
+                <Buttons iconType='cash-register'> Pay</Buttons>
             </Modal>
         </div>
     )

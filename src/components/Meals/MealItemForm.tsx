@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './MealItemForm.css'
 import CartContext from './../../store/cartContext';
+import Buttons from './../../utils/Buttons';
 
 const MealItemForm = (props) => {
 
@@ -23,21 +24,11 @@ const MealItemForm = (props) => {
 
     let activeRemoveButton = mealAmount[0] && mealAmount[0].amount && 'activeRemoveButton'
     return (
-        <form className='form' onSubmit={SubmitFormHandler}>
-
-            <button onClick={addItem}>
-                <i className="fas fa-plus"></i>
-            </button>
-
-            <button className={`removeButton ${activeRemoveButton}`} onClick={() => props.onRemoveItem(id)} >
-                <i className="fas fa-minus"></i>
-            </button>
-
+        <form className='meal-item' onSubmit={SubmitFormHandler}>
+            <Buttons handleButtonClick={addItem} iconType='plus' />
+            <Buttons handleButtonClick={() => props.onRemoveItem(id)} iconType='minus' additionalClasses={`removeButton ${activeRemoveButton}`} />
         </form>
     )
-
-
-
 }
 
 export default MealItemForm
