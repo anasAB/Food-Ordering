@@ -1,112 +1,88 @@
-  .loader {
-    position: relative;
-    margin-top: 22em;
-  }
+.loader {
+  margin-top: 22em;
+}
 
-  .outer,
-  .middle,
-  .inner {
-    border: 3px solid transparent;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
+.outer,
+.middle,
+.inner {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 
-  .outer {
-    width: 3.5em;
-    height: 3.5em;
-    margin-left: -1.75em;
-    margin-top: -1.75em;
-    animation: spin 3s linear infinite;
-  }
+.outer {
+  width: 3.5em;
+  height: 3.5em;
+  margin-left: -1.75em;
+  margin-top: -1.75em;
+  animation: spin 3s linear infinite;
+}
 
-  .middle {
-    width: 2.1em;
-    height: 2.1em;
-    margin-left: -1.05em;
-    margin-top: -1.05em;
-    animation: spin 2.5s linear reverse infinite;
-  }
+.middle {
+  width: 2.1em;
+  height: 2.1em;
+  margin-left: -1.05em;
+  margin-top: -1.05em;
+  animation: spin 2.5s linear reverse infinite;
+}
 
-  .inner {
-    width: 0.8em;
-    height: 0.8em;
-    margin-left: -0.4em;
-    margin-top: -0.4em;
-    animation: spin 2s linear infinite;
-  }
+.inner {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: -0.4em;
+  margin-top: -0.4em;
+  animation: spin 2s linear infinite;
+}
 
-  @keyframes spin {
-    from {
-        border-top-color: #aa3c54;
-          }
-      to {
-        border-top-color: #e0123f;
-        transform: rotate(360deg);
-      }
+@keyframes spin {
+  from {
+    border-top-color: #aa3c54;
   }
+  to {
+    border-top-color: #e0123f;
+    transform: rotate(360deg);
+  }
+}
 
   /* loadingInfo */
-  .loadingInfo{
-      margin-top: 27em;
-      color:rgb(207, 207, 26)
-  }
+.loadingInfo{
+    margin-top: 27em;
+    color: rgb(230, 156, 20);
+    display: inline-block;
+}
 
-  .fa-info-circle{
-    animation: fade 1.5s ease-in-out alternate infinite;
-  }
+.fa-info-circle{
+  animation: fade 1.5s ease-in-out alternate infinite;
+}
 
-  @keyframes fade {
-    from {
-      opacity: 0.5;
-      color:hsl(236, 32%, 26%)
-    }
-    to {
-        color: rgb(219, 50, 50);
-      opacity: 1;
-    }
-  }
 
-  /* loaderButton */
-  .loaderButton{
-      margin-top: 4em;
+@keyframes fade {
+  from {
+    opacity: 0.5;
+    color:hsl(236, 32%, 26%)
   }
+  to {
+    color: rgb(219, 50, 50);
+    opacity: 1;
+  }
+}
 
-  .loaderButton {
-    z-index: 1;
-    position: relative;
-    font-size: inherit;
-    font-family: inherit;
-    color: white;
-    padding: 0.5em 1em;
-    outline: none;
-    border: none;
-    background-color: hsl(236, 32%, 26%);
-    overflow: hidden;
-    transition: color 0.4s ease-in-out;
-  }
+.fa-bomb{
+  animation: bomb 1.5s ease-in-out alternate infinite;
+}
 
-  .loaderButton::before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    bottom: 100%;
-    left: 100%;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background-color: #e0123f;
-    transform-origin: center;
-    transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
-    transition: transform 0.45s ease-in-out;
+@keyframes bomb {
+  from {
+    opacity: 0.5;
+    color:hsl(236, 32%, 26%);
+    transform: scale(1);
   }
-
-  .loaderButton:hover {
-    cursor: pointer;
-    color: #161616;
+  to {
+    color: rgb(219, 50, 50);
+    transform: scale(1.75);
+    opacity: 1;
   }
-
-  .loaderButton:hover::before {
-    transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
-  }
+}
+  

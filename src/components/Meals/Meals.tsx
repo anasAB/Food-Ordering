@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import AvailableMeals from './AvailableMeals';
-import MealsSummary from './MealsSummary';
-import Header from './../Layout/Header';
-import Spinner from 'src/utils/Spinner';
+import AvailableMeals from './AvailableMeals'
+import MealsSummary from './MealsSummary'
+import Header from './../Layout/Header'
 import './Meals.css'
+import Spinner from 'src/utils/Spinner'
 
 
 // const DUMMY_MEALS = [
@@ -68,8 +68,6 @@ const Meals = () => {
     const [meals, setMeals] = useState([])
     const [fetchStatus, setFetchStatus] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
-
-
 
     useEffect(() => {
         setFetchStatus(false)

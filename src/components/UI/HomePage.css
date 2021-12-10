@@ -1,5 +1,7 @@
 .home-Page{
   text-align: center;
+  margin-top: 33em;
+  animation: fade-frames  1s ease-out forwards;
 }
 
 .homePageImg{
@@ -14,68 +16,16 @@
 }
 
 
+@keyframes fade-frames {
+  0% {
+    opacity: 0;
+  }
 
-.home-Button{
-  padding-top: 20em;
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-
-.home-Button
-  button {
-    height: 4em;
-    width: 14em;
-    z-index: 1;
-    position: relative;
-    font-size: inherit;
-    font-family: inherit;
-    color: white;
-    padding: 0.5em 1em;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: hsl(204deg 74% 13% / 27%);
-    overflow: hidden;
-    transition: color 0.4s ease-in-out;
-    animation: fade-frames  1s ease-out forwards;
-  }
-
-  .home-Button
-  button:hover {
-    /* background-color: hsl(204deg 74% 13% / 50%); */
-    background-color: hsl(55deg 90% 46% / 27%);
-  }
-
-  .home-Button
-  button::before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background-color: hsl(205deg 65% 10%);;
-    transform-origin: center;
-    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
-    transition: transform 0.45s ease-in-out; 
-  }
-
-  .home-Button
-  button:hover::before {
-    transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
-  }
-
-
-  @keyframes fade-frames {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
