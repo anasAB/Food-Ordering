@@ -1,0 +1,101 @@
+.input-container {
+    position: relative;
+}
+
+.input {
+    color: rgb(231, 225, 225);
+    font-size: inherit;
+    background-color: hsl(236, 55%, 66%);
+    padding: 0.35em 0.45em;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.input:focus {
+    outline: none;
+    background-color: hsla(235, 39%, 88%, 0.904);
+}
+
+.input::placeholder {
+    color: hsla(39, 100%, 48%, 0.6);
+}
+
+.span {
+    position: absolute;
+    background-color: #79071f;
+    transition: transform 0.5s ease;
+}
+
+.bottom,
+.top {
+    height: 1px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+}
+
+.left,
+.right {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    transform: scaleY(0);
+}
+
+.bottom {
+    bottom: 0;
+    transform-origin: bottom right;
+}
+
+.input:focus ~ .bottom {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+.right {
+    right: 0;
+    transform-origin: top right;
+}
+
+.input:focus ~ .right {
+    transform-origin: bottom right;
+    transform: scaleY(1);
+}
+
+.top {
+    top: 0;
+    transform-origin: top left;
+}
+
+.input:focus ~ .top {
+    transform-origin: top right;
+    transform: scaleX(1);
+}
+
+.left {
+    left: 0;
+    transform-origin: bottom left;
+}
+
+.input:focus ~ .left {
+    transform-origin: top left;
+    transform: scaleY(1);
+}
+
+.valid-tooltip{
+    color:green;
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: contents;
+    max-width: 100%;
+    padding: 0.25rem  0.5rem;
+    margin-top: 0.1rem;
+    font-size: .875rem;
+    background-color: rgba(25,135,84,.9);
+    border-radius: 0.25rem;
+}
+
+.invalid-tooltip{
+    color: red;
+}
