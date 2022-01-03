@@ -6,6 +6,8 @@ const Buttons = (props) => {
 
     if(props.buttonType ==='HeaderCartButton' && !props.disabledButton){
         disabledButton = true
+    }else if(props.buttonType ==='FormIsValidation'){
+        disabledButton = props.disabledButton
     }
 
     let  additionalClasses = props.additionalClasses ? props.additionalClasses : ''
