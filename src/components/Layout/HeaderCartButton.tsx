@@ -18,7 +18,7 @@ const HeaderCartButton = (props) => {
     let activeShoppingCart = numberOfCartItems > 0 && 'activeShoppingCarte'
 
     return (
-        <Buttons handleButtonClick={navigateToCartHandler} disabledButton={numberOfCartItems} iconType='shopping-cart' buttonType='HeaderCartButton' additionalClasses={activeShoppingCart}>
+        <Buttons handleButtonClick={navigateToCartHandler} disabledButton={!!numberOfCartItems} iconType='shopping-cart' buttonType='HeaderCartButton' additionalClasses={activeShoppingCart}>
             {numberOfCartItems > 0 && <span className='badge'> {numberOfCartItems}</span>}
         </Buttons>
     )

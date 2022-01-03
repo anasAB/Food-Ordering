@@ -67,12 +67,14 @@ const InputForm = (props) => {
         restInputField: zipResetField
     } = useValidation(inputValue => inputValue.trim() !== '')
 
+    //! Validate Form Inputs
     let FormIsValidation = nameValueIsValid && !nameFieldHasError &&
         lastNameValueIsValid && !lastNameFieldHasError &&
         emailValueIsValid && !emailFieldHasError &&
         cityValueIsValid && !cityFieldHasError &&
         streetValueIsValid && !streetFieldHasError &&
-        zipValueIsValid && !zipValueIsValid
+        zipValueIsValid && !zipFieldHasError
+
 
     const formSubmitHandler = (event) => {
         event.preventDefault()
@@ -88,13 +90,13 @@ const InputForm = (props) => {
 
 
     return (
-        <form className = "needs-validation" noValidate onSubmit = {formSubmitHandler}>
-            <div className = "container">
-                <div className = "row">
-                    <div className = "col-md-6 mb-3">
-                        <label htmlFor = "validationTooltip01">First name</label>
+        <form className="needs-validation" noValidate onSubmit={formSubmitHandler}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6 mb-3">
+                        <label htmlFor="validationTooltip01">First name</label>
                         <input
-                            type = "text"
+                            type="text"
                             className="form-control"
                             id="validationTooltip01"
                             placeholder="First name"
@@ -103,90 +105,90 @@ const InputForm = (props) => {
                             value={firstName}
                             required
                         />
-                        <InputValidation inputFieldHasError = {nameFieldHasError} />
+                        <InputValidation inputFieldHasError={nameFieldHasError} />
                     </div>
-                    <div className = "col-md-6 mb-3">
-                        <label htmlFor = "validationTooltip02">Last name</label>
+                    <div className="col-md-6 mb-3">
+                        <label htmlFor="validationTooltip02">Last name</label>
                         <input
-                            type = "text"
-                            className = "form-control"
-                            id = "validationTooltip02"
-                            placeholder = "Last name"
-                            onBlur = {lastNameBlurHandler}
-                            onChange = {lastNameChangeHandler}
-                            value = {lastNameField}
+                            type="text"
+                            className="form-control"
+                            id="validationTooltip02"
+                            placeholder="Last name"
+                            onBlur={lastNameBlurHandler}
+                            onChange={lastNameChangeHandler}
+                            value={lastNameField}
                             required
                         />
-                        <InputValidation inputFieldHasError = {lastNameFieldHasError} />
+                        <InputValidation inputFieldHasError={lastNameFieldHasError} />
                     </div>
-                    <div className = "row">
-                        <div className = "col-md-6 mb-3">
-                            <label htmlFor = "validationTooltipUsername">Email</label>
-                            <div className = "input-group">
-                                <div className = "input-group-prepend">
-                                    <span className = "input-group-text" id ="validationTooltipUsernamePrepend">@</span>
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="validationTooltipUsername">Email</label>
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                                 </div>
                                 <input
-                                    type = "email"
-                                    className = "form-control"
-                                    id = "validationTooltip02"
-                                    placeholder ="Email"
-                                    onBlur = {emailBlurHandler}
-                                    onChange = {emailChangeHandler}
-                                    value = {emailField}
+                                    type="email"
+                                    className="form-control"
+                                    id="validationTooltip02"
+                                    placeholder="Email"
+                                    onBlur={emailBlurHandler}
+                                    onChange={emailChangeHandler}
+                                    value={emailField}
                                     required
                                 />
-                                <InputValidation inputFieldHasError = {emailFieldHasError} />
+                                <InputValidation inputFieldHasError={emailFieldHasError} />
                             </div>
                         </div>
-                        <div className = "col-md-6 mb-3">
-                            <label htmlFor = "validationTooltip03">City</label>
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="validationTooltip03">City</label>
                             <input
-                                type = "text"
-                                className = "form-control"
-                                id = "city"
-                                placeholder = "City"
-                                onBlur = {cityBlurHandler}
-                                onChange = {cityChangeHandler}
-                                value = {cityField}
+                                type="text"
+                                className="form-control"
+                                id="city"
+                                placeholder="City"
+                                onBlur={cityBlurHandler}
+                                onChange={cityChangeHandler}
+                                value={cityField}
                                 required
                             />
-                            <InputValidation inputFieldHasError = {cityFieldHasError} />
+                            <InputValidation inputFieldHasError={cityFieldHasError} />
                         </div>
                     </div>
-                    <div className = "row">
-                        <div className = "col-md-6 mb-3">
-                            <label htmlFor = "validationTooltip04">Street</label>
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="validationTooltip04">Street</label>
                             <input
-                                type = "text"
-                                className = "form-control"
-                                id = "street"
-                                placeholder = "Street"
-                                onBlur = {streetBlurHandler}
-                                onChange = {streetChangeHandler}
-                                value = {streetField}
+                                type="text"
+                                className="form-control"
+                                id="street"
+                                placeholder="Street"
+                                onBlur={streetBlurHandler}
+                                onChange={streetChangeHandler}
+                                value={streetField}
                                 required
                             />
-                            <InputValidation inputFieldHasError = {streetFieldHasError} />
+                            <InputValidation inputFieldHasError={streetFieldHasError} />
                         </div>
-                        <div className = "col-md-6 mb-3">
-                            <label htmlFor = "validationTooltip05">Zip</label>
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="validationTooltip05">Zip</label>
                             <input
-                                type = "text"
-                                className = "form-control"
-                                id = "zip"
-                                placeholder = "Zip Code"
-                                onBlur = {zipBlurHandler}
-                                onChange = {zipChangeHandler}
-                                value = {zipField}
+                                type="text"
+                                className="form-control"
+                                id="zip"
+                                placeholder="Zip Code"
+                                onBlur={zipBlurHandler}
+                                onChange={zipChangeHandler}
+                                value={zipField}
                                 required
                             />
-                            <InputValidation inputFieldHasError = {zipFieldHasError} />
+                            <InputValidation inputFieldHasError={zipFieldHasError} />
                         </div>
                     </div>
                     <div >
-                        <Buttons disabledButton = {!FormIsValidation} >Submit</Buttons>
-                        <Buttons handleButtonClick = {hideOrderFormHandler}>Back</Buttons>
+                        <Buttons handleButtonClick={hideOrderFormHandler}>Back</Buttons>
+                        <Buttons disabledButton={!FormIsValidation} buttonType='FormIsValidation' >Submit</Buttons>
                     </div>
                 </div>
             </div>
