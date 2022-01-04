@@ -61,6 +61,8 @@ const cartReducer = (state, action) => {
             } else {
                 return state
             }
+        case 'CLEAR-CART':
+            return defaultCartState
 
         default:
             return defaultCartState
@@ -71,6 +73,7 @@ const cartReducer = (state, action) => {
 const CartProvider = (props) => {
 
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
+
     const addItem = (item) => {
         dispatchCartAction({ type: 'ADD-ITEM', item })
     }
@@ -79,11 +82,16 @@ const CartProvider = (props) => {
         dispatchCartAction({ type: 'REMOVE-ITEM', id })
     }
 
+    const clearCart = () => {
+        dispatchCartAction({type: 'CLEAR-CART' })
+    }
+
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
-        addItem: addItem,
-        removeItem: removeItem,
+        addItem,
+        removeItem,
+        clearCart
     }
 
     return (
