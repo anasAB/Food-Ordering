@@ -11,6 +11,7 @@ const ShoppingCart = () => {
     const cartCtx = useContext(CartContext);
     const [shoppingItems, setShoppingItems] = useState(true)
     const [continueOrdering, setContinueOrdering] = useState(false)
+    const [hideModal, setHideModal] = useState(false)
 
     const cancelHandler = useCallback(() => {
         history.push('/Meals')
@@ -23,11 +24,37 @@ const ShoppingCart = () => {
         if (!shoppingItems) {
             cancelHandler()
         }
-    }, [cartCtx.items, shoppingItems, cancelHandler,])
+    }, [cartCtx.items, shoppingItems, cancelHandler])
 
     const order = (value) => {
         setContinueOrdering(value)
     }
+
+
+    //! post user data
+    const submitFormData = (formData) => {
+        let userData = {
+            formData,
+            orderedItem: cartCtx.items
+        }
+
+        fetch("https://food-ordering-7bdbe-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
+            method: 'POST',
+            body: JSON.stringify({
+                user: userData
+            })
+        })
+
+        setTimeout(function () {
+            history.push('/Meals');
+            cartCtx.clearCart()
+        }, 7000);
+    }
+
+    const hideForm = (submit) => {
+        setHideModal(submit)
+    }
+
 
 
     const foodElement = cartCtx.items.map(item => {
@@ -43,14 +70,17 @@ const ShoppingCart = () => {
     })
 
     let orderForm = continueOrdering ? 'ordering-form' : 'hide-ordering-form'
+    let hideCartForm = hideModal ? 'hide-modal' : '';
+
+
 
     return (
         <div>
             <div className='order-page'>
                 <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foldwayspt.org%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2FFotolia_106693035_healthy-food-board.jpg&f=1&nofb=1' alt='Order-Food' />
             </div>
-            <div>
-                <Modal>
+            <Modal>
+                <div className={hideCartForm}>
                     <h1>Shopping Cart</h1>
                     <table className="table" >
                         <thead>
@@ -72,14 +102,31 @@ const ShoppingCart = () => {
                             <Buttons handleButtonClick={cancelHandler} iconType='chevron-circle-left'> Back</Buttons>
                             <Buttons iconType='address-card' handleButtonClick={order}> Continue</Buttons>
                         </div>
-                        : ''}
+                        : ''
+                    }
 
-                    <div className={orderForm}>
-                        <InputForm  closeForm={order}/>
+                    {continueOrdering ?
+                        <div className={orderForm}>
+                            <InputForm closeForm={order} submitFormData={submitFormData} hideForm={hideForm} />
+                        </div> : ''
+                    }
+                </div>
+
+                {hideCartForm ?
+                    <div className='check-body'>
+                        <div className="check-card">
+                            <div className='check-mark'>
+                                <i>✓</i>
+                            </div>
+                            <h1>Success</h1>
+                            <p>We received your purchase request<br />
+                                <i className="fas fa-info"> You will be redirected to Home Page </i>
+                            </p>
+                        </div>
                     </div>
-
-                </Modal>
-            </div>
+                    : ''
+                }
+            </Modal>
         </div>
     )
 }
