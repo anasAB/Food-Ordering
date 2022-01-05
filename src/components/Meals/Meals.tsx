@@ -68,6 +68,7 @@ const Meals = () => {
     const [meals, setMeals] = useState([])
     const [fetchStatus, setFetchStatus] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
+    const [selectedMeal, setSelectedMeal] = useState()
 
     useEffect(() => {
         setFetchStatus(false)
@@ -88,6 +89,7 @@ const Meals = () => {
                     price: response[key].price,
                     image: response[key].image,
                     ingredients: response[key].ingredients,
+                    type: response[key].type
                 })
             }
             setMeals(loadedMeals)
@@ -97,19 +99,31 @@ const Meals = () => {
         setIsLoading(false)
     }, [])
 
+    //! update selected Meal
+    const meal = (selectValue) => {
+        setSelectedMeal(selectValue)
+    }
+
+    //! filter the meals
+    let filteredMeals
+    if (selectedMeal !== 'all meals') {
+        filteredMeals = meals.filter(meal => meal.type === selectedMeal)
+    }
+
+
     let pageLoading = isLoading ?
         <section className='isLoading'>
             <div className="loadingBox">
                 <div className="loadingCoin" />
             </div>
         </section> :
-        <AvailableMeals meals={meals} />
+        <AvailableMeals meals={!filteredMeals ? meals : filteredMeals} />
 
     return (
         <>
             {!fetchStatus ? <Spinner /> :
                 <>
-                    <Header />
+                    <Header selectedMeal={meal} />
                     <MealsSummary />
                     {pageLoading}
                 </>
