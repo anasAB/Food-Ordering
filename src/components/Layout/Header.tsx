@@ -4,7 +4,7 @@ import HeaderCartButton from './HeaderCartButton'
 import { useHistory } from "react-router-dom";
 
 
-const Header = () => {
+const Header = (props) => {
     const history = useHistory();
 
     function handleClick() {
@@ -15,7 +15,7 @@ const Header = () => {
         <Fragment>
             <header id="header" className='header'>
                 <h1 onClick={handleClick}>Meal</h1>
-                <HeaderCartButton />
+                <HeaderCartButton selectedMeal={props.selectedMeal}/>
             </header>
 
             <div className='main-image'>
