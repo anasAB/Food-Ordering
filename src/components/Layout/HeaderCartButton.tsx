@@ -32,14 +32,11 @@ const HeaderCartButton = (props) => {
     let activeShoppingCart = numberOfCartItems > 0 && 'activeShoppingCarte'
 
     return (
-        <>
-            <Buttons handleButtonClick={navigateToCartHandler} disabledButton={!!numberOfCartItems} iconType='shopping-cart' buttonType='HeaderCartButton' additionalClasses={activeShoppingCart}>
-                {numberOfCartItems > 0 && <span className='badge'> {numberOfCartItems}</span>}
-            </Buttons>
+        <div className='head-cart-body'>
 
-            <div>
+            <div className='drop-down-list'>
                 <label>
-                    What do we eat?
+                    <p>What do we eat?</p>
                     <select value={value} onChange={handleChange}>
                         <option value="all meals">All Meals</option>
                         <option value="salad">Salad</option>
@@ -48,7 +45,12 @@ const HeaderCartButton = (props) => {
                     </select>
                 </label>
             </div>
-        </>
+
+            <Buttons handleButtonClick={navigateToCartHandler} disabledButton={!!numberOfCartItems} iconType='shopping-cart' buttonType='HeaderCartButton' additionalClasses={activeShoppingCart}>
+                {numberOfCartItems > 0 && <span className='badge'> {numberOfCartItems}</span>}
+            </Buttons>
+
+        </div>
     )
 }
 
