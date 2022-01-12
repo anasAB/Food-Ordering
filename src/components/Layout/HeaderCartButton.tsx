@@ -5,14 +5,14 @@ import CartContext from './../../store/cartContext';
 import './HeaderCartButton.css'
 
 
-const HeaderCartButton = (props) => {
+const HeaderCartButton = (props:any) => {
 
-    const history = useHistory();
+    const history = useHistory ();
     const cartCtx = useContext(CartContext);
     const [value, setValue] = useState('all meals');
     const { selectedMeal } = props
 
-    const handleChange = (event) => {
+    const handleChange = (event:any) => {
         setValue(event.target.value);
     };
 
@@ -23,15 +23,15 @@ const HeaderCartButton = (props) => {
 
 
 
-    const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+    const numberOfCartItems : any = cartCtx.items.reduce((curNumber: any, item : any)  => {
         return curNumber + item.amount;
     }, 0);
 
     const navigateToCartHandler = () => { history.push("/ShoppingCart") }
 
-    let activeShoppingCart = numberOfCartItems > 0 && 'activeShoppingCarte'
+    let activeShoppingCart :any= numberOfCartItems > 0 && 'activeShoppingCarte'
 
-    return (
+    return ( 
         <div className='head-cart-body'>
 
             <div className='drop-down-list'>

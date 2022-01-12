@@ -1,6 +1,7 @@
 import './MealIngredients.css'
 
-const MealIngredients = (props) => {
+/** 
+const MealIngredients = (props:any) => {
     const { ingredients } = props
     return (
         <div>
@@ -18,4 +19,4 @@ const MealIngredients = (props) => {
     )
 }
 
-export default MealIngredients
+export default MealIngredients*/

@@ -4,7 +4,7 @@ import HeaderCartButton from './HeaderCartButton'
 import { useHistory } from "react-router-dom";
 
 
-const Header = (props) => {
+const Header = (props:any) => {
     const history = useHistory();
 
     function handleClick() {

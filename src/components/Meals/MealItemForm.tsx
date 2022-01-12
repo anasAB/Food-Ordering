@@ -3,14 +3,14 @@ import './MealItemForm.css'
 import CartContext from './../../store/cartContext';
 import Buttons from './../../utils/Buttons';
 
-const MealItemForm = (props) => {
+const MealItemForm = (props: any) => {
 
     const { id } = props;
     const cartCtx = useContext(CartContext)
-    const mealAmount = cartCtx.items.filter(item => item.id === id)
+    const mealAmount: any = cartCtx.items.filter((item: any) => item.id === id)
 
 
-    const SubmitFormHandler = (submitEvent) => {
+    const SubmitFormHandler = (submitEvent: any) => {
         submitEvent.preventDefault();
     }
 
@@ -20,9 +20,8 @@ const MealItemForm = (props) => {
         props.onAddToCart(enteredAmountNumber);
     }
 
+    let activeRemoveButton: any = mealAmount[0] && mealAmount[0].amount && 'activeRemoveButton'
 
-
-    let activeRemoveButton = mealAmount[0] && mealAmount[0].amount && 'activeRemoveButton'
     return (
         <form className='meal-item' onSubmit={SubmitFormHandler}>
             <Buttons handleButtonClick={addItem} iconType='plus' />

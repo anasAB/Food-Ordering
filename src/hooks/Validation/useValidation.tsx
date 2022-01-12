@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-const useValidation = (inputFieldValidation) =>{
+const useValidation = (inputFieldValidation:any) =>{
 
     const [inputValue, setInputValue] = useState('');
     const [touchField,setTouchField] = useState(false);
@@ -11,7 +11,7 @@ const useValidation = (inputFieldValidation) =>{
 
     const inputFieldHasError = !inputIsValid && touchField
 
-    const inputChangeHandler = (event) => {
+    const inputChangeHandler = (event:any) => {
         setInputValue(event.target.value)
     }
 

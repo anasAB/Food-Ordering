@@ -1,11 +1,11 @@
 import React from 'react'
 import './Input.css'
 
-const Input = React.forwardRef((props,ref) => {
-    console.log('props',props);
+const Input = React.forwardRef((props:any,ref) => {
+    const {id, label} = props
     return (
         <div className='input'>
-            <label htmlFor={props.id} /*value={props.userInput.enteredTitle}*/>{props.label}</label>
+            <label htmlFor={id} /*value={props.userInput.enteredTitle}*/>{label}</label>
             <input ref={ref} {...props.input} />
         </div>
     )

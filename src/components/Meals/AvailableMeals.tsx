@@ -4,7 +4,7 @@ import MealCard from './MealCard';
 
 
 
-const AvailableMeals = (props) => {
+const AvailableMeals = (props:any) => {
     let { meals } = props;
     return (
         <section className="wrapper">
@@ -12,7 +12,7 @@ const AvailableMeals = (props) => {
                 <div className="content">
                     <div className="container">
                         <div className="row">
-                            {meals.map(meal => (
+                            {meals.map((meal:any) => (
                                 <div className="col-xs-12 col-sm-6" key={meal.id}>
                                     <MealCard meal={meal} />
                                 </div>

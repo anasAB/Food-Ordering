@@ -26,13 +26,13 @@ const ShoppingCart = () => {
         }
     }, [cartCtx.items, shoppingItems, cancelHandler])
 
-    const order = (value) => {
+    const order = (value:any) => {
         setContinueOrdering(value)
     }
 
 
     //! post user data
-    const submitFormData = (formData) => {
+    const submitFormData = (formData:any) => {
         let userData = {
             formData,
             orderedItem: cartCtx.items
@@ -51,13 +51,13 @@ const ShoppingCart = () => {
         }, 7000);
     }
 
-    const hideForm = (submit) => {
+    const hideForm = (submit:any) => {
         setHideModal(submit)
     }
 
 
 
-    const foodElement = cartCtx.items.map(item => {
+    const foodElement = cartCtx.items.map((item:any) => {
         return (
             <tbody className='tbody' key={item.id}>
                 <tr>

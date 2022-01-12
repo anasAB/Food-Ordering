@@ -1,14 +1,14 @@
 import React from 'react'
 import './Button.css'
 
-const Buttons = (props) => {
+const Buttons = (props : any) => {
     let disabledButton = false
 
-    if(props.buttonType ==='HeaderCartButton' && !props.disabledButton){
-        disabledButton = true
-    }else if(props.buttonType ==='FormIsValidation'){
-        disabledButton = props.disabledButton
-    }
+    // if(props.buttonType ==='HeaderCartButton' && !props.disabledButton){
+    //     disabledButton = true
+    // }else if(props.buttonType ==='FormIsValidation'){
+    //     disabledButton = props.disabledButton
+    // }
 
     let  additionalClasses = props.additionalClasses ? props.additionalClasses : ''
 

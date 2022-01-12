@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
-// import MealIngredients from '../Layout/MealIngredients'
 import './MealCard.css'
 import MealItemForm from './MealItemForm'
 import CartContext from '../../store/cartContext'
 
-const MealCard = (props) => {
+const MealCard = (props:any) => {
     const { id, name, description, price, image } = props.meal;
     const cartCtx = useContext(CartContext)
 
-    const addToCartHandler = (amount) => {
+    const addToCartHandler = (amount:any) => {
         cartCtx.addItem({
             id,
             name,
@@ -18,7 +17,7 @@ const MealCard = (props) => {
         })
     }
 
-    const removeItem = (id) => {
+    const removeItem = (id: number) => {
         cartCtx.removeItem(id)
     }
 
@@ -33,7 +32,6 @@ const MealCard = (props) => {
                 <p className="card-text">{description}</p>
                 <div className='card-content'>
                     <MealItemForm id={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
-                    {/* <p className="card-text"><i className="fas fa-utensils"><MealIngredients ingredients={ingredients} /></i></p> */}
                 </div>
             </div>
         </div>

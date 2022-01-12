@@ -3,7 +3,7 @@ import  ReactDOM  from 'react-dom'
 import Backdrop from './../Layout/Backdrop'
 import './Modal.css'
 
-const ModalOverLay = (props) => {
+const ModalOverLay = (props:any) => {
     return (
         <div className='modal'>
             {props.children}
@@ -11,9 +11,9 @@ const ModalOverLay = (props) => {
     )
 }
 
-const portalElement = document.getElementById('overlays');
+const portalElement:any = document.getElementById('overlays');
 
-const Modal = (props) => {
+const Modal = (props:any) => {
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop/>,portalElement)}
