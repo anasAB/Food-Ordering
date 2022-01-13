@@ -4,7 +4,7 @@ import MealsSummary from './MealsSummary'
 import Header from './../Layout/Header'
 import './Meals.css'
 import Spinner from 'src/utils/Spinner'
-import  IMeal  from './../../TypeScript/Meals';
+import  {IMeal}  from '../../TypeScript/TypeScriptStore';
 
 
 
@@ -13,7 +13,7 @@ const Meals = () => {
     const [meals, setMeals] = React.useState<IMeal[]>([])
     const [fetchStatus, setFetchStatus] = useState<Boolean>(true)
     const [isLoading, setIsLoading] = useState<Boolean>(true)
-    const [selectedMeal, setSelectedMeal] = useState<String>('')
+    const [selectedMeal, setSelectedMeal] = useState<string>('')
 
     useEffect(() => {
         setFetchStatus(false)
@@ -34,7 +34,8 @@ const Meals = () => {
                     price: response[key].price,
                     image: response[key].image,
                     ingredients: response[key].ingredients,
-                    type: response[key].type
+                    type: response[key].type,
+                    amount:response[key].amount
                 })
             }
             setMeals(loadedMeals)
@@ -45,7 +46,7 @@ const Meals = () => {
     }, [])
 
     //! update selected Meal
-    const meal = (selectValue: String) => { setSelectedMeal(selectValue) }
+    const meal = (selectValue: string) => { setSelectedMeal(selectValue) }
 
     //! filter the meals
     let filteredMeals: IMeal[] = meals

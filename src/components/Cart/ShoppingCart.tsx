@@ -13,7 +13,7 @@ const ShoppingCart = () => {
     const [continueOrdering, setContinueOrdering] = useState(false)
     const [hideModal, setHideModal] = useState(false)
 
-    const cancelHandler = useCallback(() => {
+    const cancelHandler  = useCallback(() => {
         history.push('/Meals')
         setContinueOrdering(false)
     }, [history]);
@@ -26,9 +26,7 @@ const ShoppingCart = () => {
         }
     }, [cartCtx.items, shoppingItems, cancelHandler])
 
-    const order = (value:any) => {
-        setContinueOrdering(value)
-    }
+    const order = (value:boolean) : void => setContinueOrdering(value)
 
 
     //! post user data
@@ -51,9 +49,7 @@ const ShoppingCart = () => {
         }, 7000);
     }
 
-    const hideForm = (submit:any) => {
-        setHideModal(submit)
-    }
+    const hideForm = (submit:any) =>  setHideModal(submit)
 
 
 

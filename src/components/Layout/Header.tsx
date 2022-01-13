@@ -2,14 +2,15 @@ import { Fragment } from 'react'
 import './Header.css'
 import HeaderCartButton from './HeaderCartButton'
 import { useHistory } from "react-router-dom";
+import { ISelectedMeal } from 'src/TypeScript/TypeScriptStore';
 
 
-const Header = (props:any) => {
+
+const Header  = (props:ISelectedMeal) => {
+
     const history = useHistory();
 
-    function handleClick() {
-        history.push("/");
-    }
+    const handleClick = () : void => history.push("/")
 
     return (
         <Fragment>
