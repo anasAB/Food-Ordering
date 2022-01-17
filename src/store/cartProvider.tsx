@@ -8,13 +8,13 @@ const defaultCartState = {
     totalAmount: 0,
 }
 
-const cartReducer = (state, action) => {
+const cartReducer = (state:any, action:any) => {
 
     let existedItemIndex, updatedItems, updatedItem, existingCartItem, updatedTotalAmount
 
     switch (action.type) {
         case 'ADD-ITEM':
-            existedItemIndex = state.items.findIndex((item) => item.id === action.item.id)
+            existedItemIndex = state.items.findIndex((item:any) => item.id === action.item.id)
             existingCartItem = state.items[existedItemIndex]
 
             if (existingCartItem) {
@@ -35,7 +35,7 @@ const cartReducer = (state, action) => {
 
         case 'REMOVE-ITEM':
 
-            existedItemIndex = state.items.findIndex(item => item.id === action.id)
+            existedItemIndex = state.items.findIndex((item:any) => item.id === action.id)
             existingCartItem = state.items[existedItemIndex]
 
             //! check if the meal existed
@@ -49,7 +49,7 @@ const cartReducer = (state, action) => {
                     updatedItems[existedItemIndex] = updatedItem
                 }
                 if (existingCartItem.amount === 1) {
-                    updatedItems = state.items.filter(item => item.id !== action.id)
+                    updatedItems = state.items.filter((item:any) => item.id !== action.id)
                 }
 
                 updatedTotalAmount = state.totalAmount - existingCartItem.price;
@@ -70,15 +70,15 @@ const cartReducer = (state, action) => {
 }
 
 
-const CartProvider = (props) => {
+const CartProvider = (props:any) => {
 
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
 
-    const addItem = (item) => {
+    const addItem = (item:any) => {
         dispatchCartAction({ type: 'ADD-ITEM', item })
     }
 
-    const removeItem = (id) => {
+    const removeItem = (id:any) => {
         dispatchCartAction({ type: 'REMOVE-ITEM', id })
     }
 

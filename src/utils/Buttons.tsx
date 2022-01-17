@@ -1,24 +1,27 @@
-import React from 'react'
+import { IButtons } from 'src/TypeScript/TypeScriptStore';
 import './Button.css'
 
-const Buttons = (props) => {
-    let disabledButton = false
+const Buttons = (props: IButtons) => {
 
-    if(props.buttonType ==='HeaderCartButton' && !props.disabledButton){
-        disabledButton = true
-    }else if(props.buttonType ==='FormIsValidation'){
-        disabledButton = props.disabledButton
+    let disabled = false
+    const {buttonType,disabledButton,additionalClasses,iconType,children,handleButtonClick} = props
+
+    if(buttonType ==='HeaderCartButton' && !disabledButton){
+        disabled = true
+    }else if(buttonType ==='FormIsValidation' && disabledButton !== undefined){
+        disabled = disabledButton
     }
 
-    let  additionalClasses = props.additionalClasses ? props.additionalClasses : ''
+
+   let additionalClass : string = additionalClasses ? additionalClasses : ''
 
     return (
         <button
-            onClick = {props.handleButtonClick}
-            className = {`button ${additionalClasses}`}
-            disabled = {disabledButton}>
-            <i className = {`fas fa-${props.iconType}`}></i>
-            {props.children}
+            onClick={handleButtonClick}
+            className={`button ${additionalClass}`}
+            disabled={disabled}>
+            <i className={`fas fa-${iconType}`}></i>
+            {children}
         </button>
     )
 

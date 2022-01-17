@@ -1,26 +1,10 @@
-import React, { useContext } from 'react'
-// import MealIngredients from '../Layout/MealIngredients'
 import './MealCard.css'
 import MealItemForm from './MealItemForm'
-import CartContext from '../../store/cartContext'
+import { IMealCardProps } from './../../TypeScript/TypeScriptStore';
 
-const MealCard = (props) => {
-    const { id, name, description, price, image } = props.meal;
-    const cartCtx = useContext(CartContext)
 
-    const addToCartHandler = (amount) => {
-        cartCtx.addItem({
-            id,
-            name,
-            amount,
-            description,
-            price
-        })
-    }
-
-    const removeItem = (id) => {
-        cartCtx.removeItem(id)
-    }
+const MealCard = (props: IMealCardProps) => {
+    const { name, description, image } = props.meal;
 
 
     return (
@@ -32,8 +16,7 @@ const MealCard = (props) => {
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{description}</p>
                 <div className='card-content'>
-                    <MealItemForm id={id} onAddToCart={addToCartHandler} onRemoveItem={removeItem} />
-                    {/* <p className="card-text"><i className="fas fa-utensils"><MealIngredients ingredients={ingredients} /></i></p> */}
+                    <MealItemForm meal={props.meal} />
                 </div>
             </div>
         </div>

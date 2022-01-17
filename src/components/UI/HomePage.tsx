@@ -1,12 +1,12 @@
 import React from 'react'
 import './HomePage.css';
 import Buttons from './../../utils/Buttons';
+import { useHistory } from 'react-router-dom';
 
 
 
-
-export default function HomePage({ history }) {
-
+export default function HomePage() {
+    const history = useHistory()
     const navigateToMeals = () => {
         history.push("/Meals")
     }

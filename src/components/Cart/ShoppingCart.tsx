@@ -1,17 +1,18 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react'
+import { useContext, useState, useEffect, useCallback } from 'react'
 import CartContext from '../../store/cartContext';
 import { useHistory } from "react-router-dom";
 import Modal from '../UI/Modal';
 import './ShoppingCart.css'
 import Buttons from './../../utils/Buttons';
 import InputForm from '../Form/InputForms';
+import { ICartCtx, IFormData, IUserData } from 'src/TypeScript/TypeScriptStore';
 
 const ShoppingCart = () => {
     const history = useHistory();
-    const cartCtx = useContext(CartContext);
-    const [shoppingItems, setShoppingItems] = useState(true)
-    const [continueOrdering, setContinueOrdering] = useState(false)
-    const [hideModal, setHideModal] = useState(false)
+    const cartCtx: ICartCtx = useContext(CartContext);
+    const [shoppingItems, setShoppingItems] = useState<boolean>(true)
+    const [continueOrdering, setContinueOrdering] = useState<boolean>(false)
+    const [hideModal, setHideModal] = useState<boolean>(false)
 
     const cancelHandler = useCallback(() => {
         history.push('/Meals')
@@ -20,20 +21,18 @@ const ShoppingCart = () => {
 
 
     useEffect(() => {
-        cartCtx.items.length > 0 ? setShoppingItems(true) : setShoppingItems(false)
+        cartCtx.items.length < 0 && setShoppingItems(false)
         if (!shoppingItems) {
             cancelHandler()
         }
     }, [cartCtx.items, shoppingItems, cancelHandler])
 
-    const order = (value) => {
-        setContinueOrdering(value)
-    }
+    const order = (value: boolean): void => setContinueOrdering(value)
 
 
     //! post user data
-    const submitFormData = (formData) => {
-        let userData = {
+    const submitFormData = (formData: IFormData) => {
+        let userData: IUserData = {
             formData,
             orderedItem: cartCtx.items
         }
@@ -51,13 +50,10 @@ const ShoppingCart = () => {
         }, 7000);
     }
 
-    const hideForm = (submit) => {
-        setHideModal(submit)
-    }
+    const hideForm = (submit: boolean) : void => setHideModal(submit)
 
 
-
-    const foodElement = cartCtx.items.map(item => {
+    const foodElement = cartCtx.items.map((item: any) => {
         return (
             <tbody className='tbody' key={item.id}>
                 <tr>
@@ -69,8 +65,8 @@ const ShoppingCart = () => {
         )
     })
 
-    let orderForm = continueOrdering ? 'ordering-form' : 'hide-ordering-form'
-    let hideCartForm = hideModal ? 'hide-modal' : '';
+    let orderForm: string = continueOrdering ? 'ordering-form' : 'hide-ordering-form'
+    let hideCartForm: string = hideModal ? 'hide-modal' : '';
 
 
 

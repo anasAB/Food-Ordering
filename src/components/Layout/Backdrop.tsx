@@ -1,7 +1,7 @@
 import React from 'react';
 import './Backdrop.css'
 
-const backdrop = (props) => (
+const backdrop = (props:any) => (
     <div className='Backdrop' >
         {props.children}
     </div>
