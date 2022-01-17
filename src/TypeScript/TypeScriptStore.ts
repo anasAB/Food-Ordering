@@ -41,7 +41,20 @@ export interface IVoidFunction {
     cancelHandler(): void
 }
 
-
 export interface IMealCardProps {
     meal: IMeal
+}
+
+export interface IFormData {
+    city: string
+    email: string
+    lastName: string
+    name: string
+    street: string
+    zip: string
+}
+
+export interface IUserData {
+    formData: IFormData,
+    orderedItem: IMeal[]
 }
