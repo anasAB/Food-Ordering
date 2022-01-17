@@ -4,6 +4,8 @@ import CartContext from './../../store/cartContext';
 import Buttons from './../../utils/Buttons';
 
 const MealItemForm = (props: any) => {
+    console.log('propsxx');
+    
 
     const { id } = props;
     const cartCtx = useContext(CartContext)

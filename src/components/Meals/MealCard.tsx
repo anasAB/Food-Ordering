@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import './MealCard.css'
 import MealItemForm from './MealItemForm'
 import CartContext from '../../store/cartContext'
+import { ICartCtx, IMealCardProps } from './../../TypeScript/TypeScriptStore';
 
-const MealCard = (props:any) => {
+
+const MealCard = (props: IMealCardProps) => {
     const { id, name, description, price, image } = props.meal;
-    const cartCtx = useContext(CartContext)
+    const cartCtx: ICartCtx = useContext(CartContext)
 
-    const addToCartHandler = (amount:any) => {
+    const addToCartHandler = (amount: number): void => {
         cartCtx.addItem({
             id,
             name,
@@ -17,10 +19,7 @@ const MealCard = (props:any) => {
         })
     }
 
-    const removeItem = (id: number) => {
-        cartCtx.removeItem(id)
-    }
-
+    const removeItem = (id:number) =>  cartCtx.removeItem(id)
 
     return (
         <div className="card bg-dark">

@@ -4,9 +4,7 @@ import MealsSummary from './MealsSummary'
 import Header from './../Layout/Header'
 import './Meals.css'
 import Spinner from 'src/utils/Spinner'
-import  {IMeal}  from '../../TypeScript/TypeScriptStore';
-
-
+import { IMeal } from '../../TypeScript/TypeScriptStore';
 
 
 const Meals = () => {
@@ -35,7 +33,7 @@ const Meals = () => {
                     image: response[key].image,
                     ingredients: response[key].ingredients,
                     type: response[key].type,
-                    amount:response[key].amount
+                    amount: response[key].amount
                 })
             }
             setMeals(loadedMeals)
@@ -45,23 +43,22 @@ const Meals = () => {
         setIsLoading(false)
     }, [])
 
-    //! update selected Meal
-    const meal = (selectValue: string) => { setSelectedMeal(selectValue) }
-
-    //! filter the meals
     let filteredMeals: IMeal[] = meals
+    const meal = (selectValue: string) => setSelectedMeal(selectValue)
+
+    //! update selected Meal
     if (selectedMeal !== 'all meals' && meals !== undefined) {
         filteredMeals = meals.filter((meal: any) => meal.type === selectedMeal)
     }
 
-
+    //! filter the meals
     let pageLoading = isLoading && meals.length <= 0 ?
         <section className='isLoading'>
             <div className="loadingBox">
                 <div className="loadingCoin" />
             </div>
         </section> :
-        <AvailableMeals meals={!filteredMeals ? meals : filteredMeals} />
+        <AvailableMeals availableMeals={!filteredMeals ? meals : filteredMeals} />
 
     return (
         <>

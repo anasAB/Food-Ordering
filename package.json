@@ -1,5 +1,6 @@
 {
   "name": "food-order",
+  "main": "lib/index.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,7 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-dist": "./node_modules/typescript/bin/tsc",
@@ -51,6 +53,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
     "@types/react-router-dom": "^5.3.2",
     "typedoc": "^0.21.9"
   }

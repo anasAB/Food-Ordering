@@ -6,7 +6,7 @@ export interface IMeal {
     name: string
     price: number
     type: string
-    amount:number
+    amount: number
 }
 
 export interface ISelectedMeal {
@@ -16,8 +16,14 @@ export interface ISelectedMeal {
 export interface ICartCtx {
     items: IMeal[];
     totalAmount: number;
-    addItem: (item: any) => void;
-    removeItem: (id: any) => void;
+    addItem: (item: {
+        id: string,
+        name: string,
+        amount: number,
+        description: string,
+        price: number
+    }) => void;
+    removeItem: (id: number) => void;
     clearCart: () => void;
 }
 
@@ -32,6 +38,10 @@ export interface IButtons {
 }
 
 export interface IVoidFunction {
-    cancelHandler () : void
+    cancelHandler(): void
 }
 
+
+export interface IMealCardProps {
+    meal: IMeal
+}

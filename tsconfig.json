@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es6",
     "module": "esnext",
     "allowJs": true,
     "checkJs": false,
@@ -13,13 +13,18 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "sourceMap": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
     "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext",
       "es2016",
-      "scripthost"
+      "scripthost",
+      "es6"
     ],
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -43,6 +48,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "**/*.jsx"
+    "**/*.jsx",
+    "typings/*.d.ts",
   ]
 }
