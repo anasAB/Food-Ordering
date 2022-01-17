@@ -3,7 +3,7 @@ import useValidation from './../../hooks/Validation/useValidation';
 import InputValidation from 'src/utils/inputValidation/InputValidation';
 import Buttons from './../../utils/Buttons';
 
-const InputForm = (props:any) => {
+const InputForm = (props: any) => {
 
     const { closeForm, hideForm } = props
 
@@ -15,7 +15,7 @@ const InputForm = (props:any) => {
         inputChangeHandler: nameChangeHandler,
         inputBlurHandler: nameBlurHandler,
         restInputField: nameResetField
-    } = useValidation((inputValue:any) => inputValue.trim() !== '')
+    } = useValidation((inputValue: string) => inputValue.trim() !== '')
 
     //!Last Name
     const {
@@ -25,7 +25,7 @@ const InputForm = (props:any) => {
         inputChangeHandler: lastNameChangeHandler,
         inputBlurHandler: lastNameBlurHandler,
         restInputField: lastNameResetField
-    } = useValidation((inputValue:any) => inputValue.trim() !== '')
+    } = useValidation((inputValue: string) => inputValue.trim() !== '')
 
     //!Email
     const {
@@ -35,7 +35,7 @@ const InputForm = (props:any) => {
         inputChangeHandler: emailChangeHandler,
         inputBlurHandler: emailBlurHandler,
         restInputField: emailResetField
-    } = useValidation((inputValue:any) => inputValue.includes('@'))
+    } = useValidation((inputValue: string) => inputValue.includes('@'))
 
     //!City
     const {
@@ -45,7 +45,7 @@ const InputForm = (props:any) => {
         inputChangeHandler: cityChangeHandler,
         inputBlurHandler: cityBlurHandler,
         restInputField: cityResetField
-    } = useValidation((inputValue:any) => inputValue.trim() !== '')
+    } = useValidation((inputValue: string) => inputValue.trim() !== '')
 
     //!Street
     const {
@@ -55,7 +55,7 @@ const InputForm = (props:any) => {
         inputChangeHandler: streetChangeHandler,
         inputBlurHandler: streetBlurHandler,
         restInputField: streetResetField
-    } = useValidation((inputValue:any) => inputValue.trim() !== '')
+    } = useValidation((inputValue: string) => inputValue.trim() !== '')
 
     //!Zip Code
     const {
@@ -65,10 +65,10 @@ const InputForm = (props:any) => {
         inputChangeHandler: zipChangeHandler,
         inputBlurHandler: zipBlurHandler,
         restInputField: zipResetField
-    } = useValidation((inputValue:any) => inputValue.trim() !== '')
+    } = useValidation((inputValue: string) => inputValue.trim() !== '')
 
     //! Validate Form Inputs
-    let FormIsValidation = nameValueIsValid && !nameFieldHasError &&
+    let FormIsValidation: boolean = nameValueIsValid && !nameFieldHasError &&
         lastNameValueIsValid && !lastNameFieldHasError &&
         emailValueIsValid && !emailFieldHasError &&
         cityValueIsValid && !cityFieldHasError &&
@@ -76,7 +76,9 @@ const InputForm = (props:any) => {
         zipValueIsValid && !zipFieldHasError
 
 
-    const formSubmitHandler = (event:any) => {
+
+    const formSubmitHandler = (event: any): void => {
+
         event.preventDefault()
         props.submitFormData({
             name: firstName,
@@ -99,7 +101,7 @@ const InputForm = (props:any) => {
 
 
 
-    const hideOrderFormHandler = () => { closeForm(false) }
+    const hideOrderFormHandler = (): void => closeForm(false)
 
 
     return (
