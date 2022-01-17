@@ -16,17 +16,17 @@ export interface ISelectedMeal {
 export interface ICartCtx {
     items: IMeal[];
     totalAmount: number;
-    addItem: (item: {
-        id: string,
-        name: string,
-        amount: number,
-        description: string,
-        price: number
-    }) => void;
-    removeItem: (id: number) => void;
+    addItem: (
+        item: {
+            id: string,
+            name: string,
+            amount: number,
+            description: string,
+            price: number
+        }) => void;
+    removeItem: (id: string) => void;
     clearCart: () => void;
 }
-
 
 export interface IButtons {
     additionalClasses?: string
